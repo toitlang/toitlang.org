@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta name="description" content="" />
+<link rel="icon" href="/favicon.svg" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+		
+
+		<link rel="modulepreload" href="/_app/start-2f27672b.js">
+		<link rel="modulepreload" href="/_app/chunks/vendor-19950a45.js">
+		<link rel="modulepreload" href="/_app/pages/__layout.svelte-f124f503.js">
+		<link rel="modulepreload" href="/_app/pages/index.svelte-b0ec3bce.js">
+		<link rel="stylesheet" href="/_app/assets/start-fcddce2f.css">
+		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-d3b67eb2.css">
+		<link rel="stylesheet" href="/_app/assets/pages/index.svelte-3e1ebf26.css">
+
+		<script type="module">
+			import { start } from "/_app/start-2f27672b.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"","assets":""},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "always",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/_app/pages/__layout.svelte-f124f503.js"),
+						import("/_app/pages/index.svelte-b0ec3bce.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "\u002F",
+						query: new URLSearchParams(""),
+						params: {}
+					}
+				}
+			});
+		</script>
+
+<div id="svelte">
+
+
+<header class="svelte-12y6fod"><nav class="svelte-12y6fod"><svg xmlns="http://www.w3.org/2000/svg" contenteditable="true"></svg>
+    <ul class="svelte-12y6fod"><li class="svelte-12y6fod">Documentation</li>
+      <li class="svelte-12y6fod">Blog</li>
+      <li class="svelte-12y6fod">GitHub</li>
+      <li class="svelte-12y6fod">About</li></ul></nav>
+</header>
+
+<main><section class="svelte-2ci8ec"><h1 class="svelte-2ci8ec">Toit is a free and open source object-oriented language designed specifically for IoT</h1>
+
+  <div class="carousel svelte-1vj1v6h"><div class="slide svelte-1vj1v6h"><div class="slide__description svelte-1vj1v6h"><h2 class="svelte-1vj1v6h">Getters and Setters</h2>
+        <p class="svelte-1vj1v6h">In Toit, getters and setters have the same syntax (for users of a class) as public
+            member variables. Therefore there is no need to write trivial setters and getters.</p>
+        <a href="/" class="svelte-1vj1v6h">Learn more...</a></div>
+      <div class="slide__code svelte-1vj1v6h"><pre><code><!-- HTML_TAG_START --><span class="hljs-keyword">class</span> UnneededPrivacy:
+  <span class="hljs-comment">// No point in making this private since</span>
+  <span class="hljs-comment">// it has a trivial getter and setter.</span>
+  x_ /int  <span class="hljs-comment">// Private member variable.</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">constructor</span> <span class="hljs-title">x</span>/<span class="hljs-title">int</span>:</span>
+    x_ = x
+
+  <span class="hljs-comment">// Getter.</span>
+  x -&gt; int:
+    return x_<!-- HTML_TAG_END --></code></pre></div></div>
+  <div class="pagination svelte-1vj1v6h"><button class="svelte-1vj1v6h active">1</button><button class="svelte-1vj1v6h">2</button><button class="svelte-1vj1v6h">3</button><button class="svelte-1vj1v6h">4</button><button class="svelte-1vj1v6h">5</button></div>
+</div>
+</section>
+
+<section class="svelte-1dyasuu"><div class="action svelte-1dyasuu"><h3 class="action__title svelte-1dyasuu"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9l-14 9V3z"/></g><!-- HTML_TAG_END --></svg> Get started</h3>
+    <div class="action__body svelte-1dyasuu"><p class="svelte-1dyasuu">Some text about getting started and what the user can expect when clicking this button.</p></div>
+    <div class="action__buttons"><a class="btn btn--primary" href="/">Beginners guide <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7l-7 7"/></g><!-- HTML_TAG_END --></svg></a></div></div>
+  <div class="action svelte-1dyasuu"><h3 class="action__title svelte-1dyasuu"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 17l4 4l4-4"/><path d="M12 12v9"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></g><!-- HTML_TAG_END --></svg> Download</h3>
+    <div class="action__body svelte-1dyasuu"><p class="svelte-1dyasuu">Some text about getting started and what the user can expect when clicking this button.</p></div>
+    <div class="action__buttons"><a class="btn" href="/">Download Toit v1.1.9 <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7l-7 7"/></g><!-- HTML_TAG_END --></svg></a></div></div>
+  <div class="action svelte-1dyasuu"><h3 class="action__title svelte-1dyasuu"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></g><!-- HTML_TAG_END --></svg> Documentation</h3>
+    <div class="action__body svelte-1dyasuu"><p class="svelte-1dyasuu">Some text about the documentation.</p></div>
+    <div class="action__buttons"><a class="btn" href="/">Visit documentation <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7l-7 7"/></g><!-- HTML_TAG_END --></svg></a></div></div>
+</section></main>
+
+
+
+
+
+			
+		</div>

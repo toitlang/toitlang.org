@@ -6,7 +6,6 @@ It is built with [SvelteKit](https://kit.svelte.dev).
 
 ## Developing
 
-
 ```bash
 npm install
 npm run dev
@@ -27,7 +26,10 @@ This project uses a few preprocessors:
 
 ## Building
 
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
+Before creating a production version of your app, install an
+[adapter](https://kit.svelte.dev/docs#adapters) for your target environment.
+
+Then:
 
 ```bash
 npm run build

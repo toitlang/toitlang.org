@@ -2,6 +2,7 @@ import hljs from 'highlight.js'
 
 const fileRegex = /\.(toit)$/
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const toitPlugin = () => {
   return {
     name: 'transform-file',

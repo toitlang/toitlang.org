@@ -4,6 +4,8 @@ import preprocess from 'svelte-preprocess'
 import linearClamp from './postcss-linear-clamp.js'
 import toitPlugin from './tool/toit-plugin.js'
 import Icons from 'unplugin-icons/vite'
+import svg from '@poppanator/sveltekit-svg'
+
 const dev = process.env.NODE_ENV === 'development'
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -41,6 +43,21 @@ const config = {
         Icons({
           compiler: 'svelte',
           // scale: 1,
+        }),
+        svg({
+          // https://github.com/svg/svgo#configuration
+          svgoOptions: {
+            plugins: [
+              {
+                name: 'preset-default',
+                params: {
+                  overrides: {
+                    removeViewBox: false,
+                  },
+                },
+              },
+            ],
+          },
         }),
       ],
     },

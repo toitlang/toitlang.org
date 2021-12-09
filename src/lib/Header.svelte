@@ -1,10 +1,10 @@
 <script>
-  import InlineSVG from 'svelte-inline-svg'
+  import ToitLogo from './toit-logo.svg'
 </script>
 
 <header>
   <nav>
-    <InlineSVG src="/images/toit-logo.svg" />
+    <ToitLogo />
     <ul>
       <li>Documentation</li>
       <li>Blog</li>

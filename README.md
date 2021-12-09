@@ -6,14 +6,13 @@ It is built with [SvelteKit](https://kit.svelte.dev).
 
 ## Developing
 
-Make sure you have `pnpm` installed (`npm install -g pnpm`) and then run:
 
 ```bash
-pnpm install
-pnpm run dev
+npm install
+npm run dev
 
 # or start the server and open the app in a new browser tab
-pnpm run dev -- --open
+npm run dev -- --open
 ```
 
 ## Preprocessors

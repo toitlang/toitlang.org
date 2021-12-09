@@ -1,0 +1,22 @@
+a.btn,
+.btn {
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  line-height: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  svg:last-child {
+    margin-right: -0.4rem;
+  }
+
+  &--primary {
+    color: white;
+    background: var(--primary-color);
+  }
+}

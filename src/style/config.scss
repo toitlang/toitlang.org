@@ -1,0 +1,24 @@
+:root {
+  // Layout
+  --header-height: 7rem;
+
+  --max-content-width: 64rem;
+  --content-padding: linearClamp(tiny, medium, 1.5, 3);
+  --calculated-content-padding: max(
+    var(--content-padding),
+    calc((100vw - var(--max-content-width)) / 2)
+  );
+  --content-vertical-padding: linearClamp(small, huge, 1.5, 6);
+
+  // Colors
+  --primary-color-hue: 232;
+  --primary-color: hsl(var(--primary-color-hue), 63%, 61%);
+
+  // Components
+  --header-font-size: linearClamp(tiny, huge, 2, 2.5);
+  --header-font-family: ClashDisplay, sans-serif;
+  --header-font-weight: 500;
+
+  --code-font-size: 1rem;
+  --code-font-family: 'Roboto Mono', monospace;
+}

@@ -1,18 +1,46 @@
-import adapter from '@sveltejs/adapter-auto';
-import preprocess from 'svelte-preprocess';
+import adapter from '@sveltejs/adapter-static'
+import postcssFunctions from 'postcss-functions'
+import preprocess from 'svelte-preprocess'
+import linearClamp from './postcss-linear-clamp.js'
+import toitPlugin from './tool/toit-plugin.js'
+import Icons from 'unplugin-icons/vite'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
-	preprocess: preprocess(),
+  // Consult https://github.com/sveltejs/svelte-preprocess
+  // for more information about preprocessors
+  preprocess: preprocess({
+    postcss: {
+      plugins: [
+        postcssFunctions({
+          functions: { linearClamp },
+        }),
+      ],
+    },
+  }),
 
-	kit: {
-		adapter: adapter(),
+  kit: {
+    adapter: adapter({
+      // default options are shown
+      pages: 'build',
+      assets: 'build',
+      fallback: null,
+    }),
 
-		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte'
-	}
-};
+    // Make sure this plays nice with GitHub Pages.
+    trailingSlash: 'always',
+    // hydrate the <div id="svelte"> element in src/app.html
+    target: '#svelte',
+    vite: {
+      plugins: [
+        toitPlugin(),
+        Icons({
+          compiler: 'svelte',
+          // scale: 1,
+        }),
+      ],
+    },
+  },
+}
 
-export default config;
+export default config

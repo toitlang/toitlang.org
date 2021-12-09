@@ -1,0 +1,34 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 16px;
+  font-family: Roboto, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: var(--header-font-size);
+  font-family: var(--header-font-family);
+  font-weight: var(--header-font-weight);
+}
+
+code {
+  font-size: var(--code-font-size);
+  font-family: var(--code-font-family);
+}
+
+a,
+a:visited,
+a:active {
+  color: inherit;
+  font-size: inherit;
+}
+
+main > section {
+  padding: var(--content-vertical-padding) var(--calculated-content-padding);
+}

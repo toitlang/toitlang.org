@@ -96,9 +96,9 @@ jobs:
           browser: ${{ matrix.browser }}
           # All these options are for the Cypress Dashboard.
           # Remove them if you don't want to use it.
-          record: true
+          # record: true
           # parallel: true
-          group: 'UI - ${{ matrix.browser }}'
+          # group: 'UI - ${{ matrix.browser }}'
         # Again, these environment variables are only necessary for the
         # Cypress Dashboard.
         env:

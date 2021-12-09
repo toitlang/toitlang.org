@@ -4,6 +4,7 @@ import preprocess from 'svelte-preprocess'
 import linearClamp from './postcss-linear-clamp.js'
 import toitPlugin from './tool/toit-plugin.js'
 import Icons from 'unplugin-icons/vite'
+const dev = process.env.NODE_ENV === 'development'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -26,6 +27,9 @@ const config = {
       assets: 'build',
       fallback: null,
     }),
+    paths: {
+      base: dev ? '' : '/toitlang.org',
+    },
 
     // Make sure this plays nice with GitHub Pages.
     trailingSlash: 'always',

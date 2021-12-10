@@ -43,7 +43,6 @@ jobs:
           path: build
 
   test:
-    if: true == false
     # We depend on the build step for this.
     needs: build
     timeout-minutes: 15
@@ -113,8 +112,7 @@ jobs:
     # Only run if merged to main.
     if: github.ref == 'refs/heads/main'
     # Only deploy if all tests passed.
-    # needs: [build, test]
-    needs: [build]
+    needs: [build, test]
 
     runs-on: ubuntu-latest
 

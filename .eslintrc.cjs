@@ -7,6 +7,9 @@ module.exports = {
   overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
   settings: {
     'svelte3/typescript': () => require('typescript'),
+    // Ignore styles written in scss.
+    // https://github.com/sveltejs/eslint-plugin-svelte3#svelte3ignore-styles
+    'svelte3/ignore-styles': ({ lang }) => lang === 'scss',
   },
   parserOptions: {
     sourceType: 'module',

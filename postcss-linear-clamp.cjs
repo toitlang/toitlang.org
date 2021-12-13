@@ -7,7 +7,7 @@ const breakpointsRem = {
   huge: 100, // 1600px
 }
 
-export const linearClamp = (minWidth, maxWidth, minSize, maxSize) => {
+module.exports = (minWidth, maxWidth, minSize, maxSize) => {
   minWidth = breakpointsRem[minWidth] ?? parseFloat(minWidth)
   maxWidth = breakpointsRem[maxWidth] ?? parseFloat(maxWidth)
   minSize = parseFloat(minSize)
@@ -19,5 +19,3 @@ export const linearClamp = (minWidth, maxWidth, minSize, maxSize) => {
 
   return `clamp(${minSize}rem, ${preferredValue}, ${maxSize}rem)`
 }
-
-export default linearClamp

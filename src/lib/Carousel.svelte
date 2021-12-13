@@ -71,7 +71,7 @@ The finally keyword defines a block of code to run when the try block is final.`
   </div>
 </div>
 
-<style lang="scss">
+<style lang="postcss">
   .carousel {
     position: relative;
     padding-top: 20rem;
@@ -81,45 +81,48 @@ The finally keyword defines a block of code to run when the try block is final.`
     top: 0;
     width: 100%;
     display: flex;
-    &__description,
-    &__code {
-      flex: 1;
-      width: 50%;
+  }
+  .slide__description,
+  .slide__code {
+    flex: 1;
+    width: 50%;
+  }
+  .slide__description {
+    font-size: 1.25rem;
+    border-right: 2px solid var(--primary-color);
+    padding-right: 3rem;
+    & h2 {
+      font-size: 1.875rem;
+      font-weight: bold;
+      margin: 0 0 1.5rem;
     }
-    &__description {
-      font-size: 1.25rem;
-      border-right: 2px solid var(--primary-color);
-      padding-right: 3rem;
-      h2 {
-        font-size: 1.875rem;
-        font-weight: bold;
-        margin: 0 0 1.5rem;
-      }
-      p {
-        line-height: 150%;
-        margin: 1.5rem 0;
-      }
-      a {
-        font-weight: bold;
-        text-decoration: none;
-        color: var(--primary-color);
-      }
+    & p {
+      line-height: 150%;
+      margin: 1.5rem 0;
     }
-    &__code {
-      padding-left: 3rem;
+    & a {
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--primary-color);
     }
+  }
+  .slide__code {
+    padding-left: 3rem;
   }
   .pagination {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    button {
+    & button {
       border: 2px solid var(--primary-color);
       border-radius: 0.25rem;
       background: transparent;
       color: white;
       width: 1.875rem;
       height: 1.875rem;
+      &:hover {
+        background: var(--primary-color-dark-bg);
+      }
       &.active {
         background: var(--primary-color);
         font-weight: bold;

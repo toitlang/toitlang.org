@@ -22,13 +22,7 @@ code {
   font-family: var(--code-font-family);
 }
 
-a,
-a:visited,
-a:active {
+a {
   color: inherit;
   font-size: inherit;
-}
-
-main > section {
-  padding: var(--content-vertical-padding) var(--calculated-content-padding);
 }

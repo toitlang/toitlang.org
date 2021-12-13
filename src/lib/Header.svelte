@@ -1,20 +1,19 @@
 <script>
-  import ToitLogo from './toit-logo.svg'
+  import ToitLogo from '/static/images/toit-logo.svg'
 </script>
 
 <header>
   <nav>
     <ToitLogo />
     <ul>
-      <li>Documentation</li>
-      <li>Blog</li>
-      <li>GitHub</li>
-      <li>About</li>
+      <li><a target="_blank" href="https://docs.toit.io/language">Documentation</a></li>
+      <li><a target="_blank" href="https://blog.toit.io">Blog</a></li>
+      <li><a target="_blank" href="https://github.com/toitlang/toit">GitHub</a></li>
     </ul>
   </nav>
 </header>
 
-<style lang="scss">
+<style lang="postcss">
   header {
     position: fixed;
     left: 0;
@@ -23,7 +22,7 @@
     height: var(--header-height);
     color: white;
     padding: 0 var(--calculated-content-padding);
-    :global(svg) {
+    & :global(svg) {
       width: 6rem;
       height: auto;
     }
@@ -35,11 +34,19 @@
     align-items: center;
     justify-content: space-between;
 
-    ul {
+    & ul {
       display: flex;
       gap: 1.5rem;
-      li {
+      & li {
         display: inline-block;
+        & a {
+          text-decoration: none;
+          &:hover {
+            text-decoration: var(--primary-color) solid underline;
+            text-underline-position: under;
+            text-decoration-thickness: 3px;
+          }
+        }
       }
     }
   }

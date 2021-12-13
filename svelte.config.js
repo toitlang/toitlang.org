@@ -1,10 +1,12 @@
 import adapter from '@sveltejs/adapter-static'
 import postcssFunctions from 'postcss-functions'
 import preprocess from 'svelte-preprocess'
-import linearClamp from './postcss-linear-clamp.js'
+import linearClamp from './postcss-linear-clamp.cjs'
 import toitPlugin from './tool/toit-plugin.js'
 import Icons from 'unplugin-icons/vite'
 import svg from '@poppanator/sveltekit-svg'
+import postcssNesting from 'postcss-nesting'
+import postcssLabFunction from 'postcss-lab-function'
 
 const dev = process.env.NODE_ENV === 'development'
 
@@ -15,6 +17,12 @@ const config = {
   preprocess: preprocess({
     postcss: {
       plugins: [
+        // * * * WARNING * * *
+        // Every plugin here needs to be added in postcss.config.cjs as well!
+        postcssNesting(),
+        // I'd love to use `preserve: true` just for Safari here, but that
+        // doesn't work with css variables.
+        postcssLabFunction({ preserve: false }),
         postcssFunctions({
           functions: { linearClamp },
         }),

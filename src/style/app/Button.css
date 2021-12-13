@@ -1,0 +1,29 @@
+.Button {
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  line-height: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+
+  & svg:last-child {
+    margin-right: -0.4rem;
+  }
+  &:hover {
+    background: var(--primary-color-light-bg);
+  }
+}
+.Button--primary {
+  color: white;
+  background: var(--primary-color);
+  &:hover {
+    --color: var(--primary-color-strong);
+    background: var(--color);
+    border-color: var(--color);
+  }
+}

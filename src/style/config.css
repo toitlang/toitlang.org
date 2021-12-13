@@ -1,5 +1,5 @@
 :root {
-  // Layout
+  /* Layout */
   --header-height: 7rem;
 
   --max-content-width: 64rem;
@@ -10,11 +10,13 @@
   );
   --content-vertical-padding: linearClamp(small, huge, 1.5, 6);
 
-  // Colors
-  --primary-color-hue: 232;
-  --primary-color: hsl(var(--primary-color-hue), 63%, 61%);
+  /* Colors */
+  --primary-color: lch(50% 61 287);
+  --primary-color-light-bg: lch(50% 61 287 / 0.1);
+  --primary-color-dark-bg: lch(50% 61 287 / 0.4);
+  --primary-color-strong: lch(40% 61 287);
 
-  // Components
+  /* Components */
   --header-font-size: linearClamp(tiny, huge, 2, 2.5);
   --header-font-family: ClashDisplay, sans-serif;
   --header-font-weight: 500;

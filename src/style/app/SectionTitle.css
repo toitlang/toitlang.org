@@ -1,0 +1,7 @@
+.SectionTitle {
+  font-weight: bold;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}

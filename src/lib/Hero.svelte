@@ -2,21 +2,23 @@
   import Carousel from './Carousel.svelte'
 </script>
 
-<section>
-  <h1>Toit is a free and open source object-oriented language designed specifically for IoT</h1>
+<h1>Toit is a free and open source object-oriented language designed specifically for IoT</h1>
 
-  <Carousel />
-</section>
+<Carousel />
 
-<style lang="scss">
-  section {
-    color: white;
-    padding-top: var(--header-height);
-    background: black url('./images/illustrations/esp32.svg') no-repeat center;
-  }
-
+<style lang="postcss">
   h1 {
     text-align: center;
     margin: 6rem 0;
+    background: linear-gradient(
+      90deg,
+      rgb(255, 239, 190) 0%,
+      white 30%,
+      white 70%,
+      rgb(200, 216, 255) 100%
+    );
+    background-clip: border-box;
+    background-clip: text;
+    color: transparent;
   }
 </style>

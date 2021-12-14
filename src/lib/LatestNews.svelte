@@ -6,7 +6,7 @@
 
 <h3 class="SectionTitle"><NewsIcon /> Latest news</h3>
 
-{#each releases as release (release.name)}
+{#each releases.slice(0, 6) as release (release.name)}
   <div class="Entry">
     <h3 class="Entry-title">
       Toit {release.tag} release

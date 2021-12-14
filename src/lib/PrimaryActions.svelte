@@ -10,11 +10,13 @@
   <div class="Action">
     <h3 class="Action-title SectionTitle"><GetStartedIcon /> Get started</h3>
     <div class="Action-body">
-      <p>Some text about getting started and what the user can expect when clicking this button.</p>
+      <p>Follow this easy step-by-step guide to get up and running with Toit.</p>
     </div>
     <div class="Action__buttons">
-      <a class="Button Button--primary" target="_blank" href="https://docs.toit.io/getstarted"
-        >Beginners guide <ArrowRight /></a
+      <a
+        class="Button Button--primary"
+        target="_blank"
+        href="https://docs.toit.io/getstarted/installation">Installation guide <ArrowRight /></a
       >
     </div>
   </div>

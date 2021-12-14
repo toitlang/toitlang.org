@@ -10,15 +10,10 @@
   h1 {
     text-align: center;
     margin: var(--content-vertical-padding) 0;
-    background: linear-gradient(
-      90deg,
-      rgb(255, 239, 190) 0%,
-      white 30%,
-      white 70%,
-      rgb(200, 216, 255) 100%
-    );
-    background-clip: border-box;
+    background: white
+      linear-gradient(90deg, rgb(255, 239, 190) 0%, white 30%, white 70%, rgb(200, 216, 255) 100%);
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
   }
 </style>

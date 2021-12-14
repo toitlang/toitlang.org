@@ -1,10 +1,9 @@
 <script lang="ts">
-  import functions from '$lib/toit-examples/functions.toit'
-  import classes from '$lib/toit-examples/classes.toit'
-  import blocks from '$lib/toit-examples/blocks.toit'
   import assignment from '$lib/toit-examples/assignment.toit'
+  import blocks from '$lib/toit-examples/blocks.toit'
+  import classes from '$lib/toit-examples/classes.toit'
+  import functions from '$lib/toit-examples/functions.toit'
   import loops from '$lib/toit-examples/loops.toit'
-  import exception from '$lib/toit-examples/exception.toit'
   import packages from '$lib/toit-examples/packages.toit'
 
   type Slide = {

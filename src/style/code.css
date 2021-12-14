@@ -1,0 +1,63 @@
+.cm-keyword {
+  color: var(--cm-keyword);
+}
+
+.cm-operator {
+  color: var(--cm-punctuation);
+}
+
+.cm-variable,
+.cm-variable-2,
+.cm-variable-3,
+.cm-type {
+  color: var(--cm-variable);
+}
+
+.cm-builtin {
+  color: var(--cm-builtin);
+}
+
+.cm-atom {
+  color: var(--cm-literal);
+}
+
+.cm-number {
+  color: var(--cm-number);
+}
+
+.cm-def {
+  color: var(--cm-decorator);
+}
+
+.cm-string,
+.cm-string-2 {
+  color: var(--cm-string);
+}
+
+.cm-comment {
+  color: var(--cm-comment);
+}
+
+.cm-tag {
+  color: var(--cm-property);
+}
+
+.cm-meta {
+  color: var(--cm-namespace);
+}
+
+.cm-attribute {
+  color: var(--cm-property);
+}
+
+.cm-property {
+  color: var(--cm-property);
+}
+
+.cm-qualifier {
+  color: var(--cm-keyword);
+}
+
+.cm-error {
+  color: var(--prism-deleted);
+}

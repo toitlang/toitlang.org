@@ -17,7 +17,7 @@
 
 <style lang="postcss">
   main {
-    background: url('./images/illustrations/symbols.svg') no-repeat -3rem bottom;
+    background: url('/images/illustrations/symbols.svg') no-repeat -3rem bottom;
   }
   main > :global(section),
   footer {

@@ -8,8 +8,6 @@ import svg from '@poppanator/sveltekit-svg'
 import postcssNesting from 'postcss-nesting'
 import postcssLabFunction from 'postcss-lab-function'
 
-const dev = process.env.NODE_ENV === 'development'
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
@@ -37,9 +35,6 @@ const config = {
       assets: 'build',
       fallback: null,
     }),
-    paths: {
-      base: dev ? '' : '/toitlang.org',
-    },
 
     // Make sure this plays nice with GitHub Pages.
     trailingSlash: 'always',

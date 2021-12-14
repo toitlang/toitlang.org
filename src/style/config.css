@@ -1,6 +1,6 @@
 :root {
   /* Layout */
-  --header-height: 7rem;
+  --header-height: linearClamp(tiny, huge, 3rem, 7rem);
 
   --max-content-width: 64rem;
   --content-padding: linearClamp(tiny, medium, 1.5, 3);
@@ -8,7 +8,7 @@
     var(--content-padding),
     calc((100vw - var(--max-content-width)) / 2)
   );
-  --content-vertical-padding: linearClamp(small, huge, 1.5, 6);
+  --content-vertical-padding: linearClamp(small, huge, 3, 6);
 
   /* Colors */
   --primary-color: lch(50% 61 287);
@@ -23,4 +23,23 @@
 
   --code-font-size: 1rem;
   --code-font-family: 'Roboto Mono', monospace;
+
+  /* Syntax highlighting */
+  --cm-comment: #888;
+  --cm-string: #d48372;
+  --cm-literal: #55a398;
+  --cm-keyword: #55a398;
+  --cm-boolean: #1c6b48;
+  --cm-number: #6394bf;
+  --cm-variable: #fac864;
+  --cm-function: #a1b567;
+  --cm-deleted: #a14f55;
+  --cm-class: #54b1bf;
+  --cm-builtin: #e0a569;
+  --cm-property: #dd8e6e;
+  --cm-namespace: #db889a;
+  --cm-punctuation: #ddd;
+  --cm-decorator: #ff8484;
+  --cm-regex: #ab5e3f;
+  --cm-json-property: #6b8b9e;
 }

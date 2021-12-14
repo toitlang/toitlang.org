@@ -1,4 +1,7 @@
-import hljs from 'highlight.js'
+import 'codemirror/addon/runmode/runmode.node.js'
+import 'codemirror/mode/meta.js'
+import CodeMirror from 'codemirror'
+import './toit.js'
 
 const fileRegex = /\.(toit)$/
 
@@ -9,14 +12,22 @@ export const toitPlugin = () => {
 
     transform(src, id) {
       if (fileRegex.test(id)) {
-        const highlighted = hljs.highlightAuto(src).value
+        const highlighted = highlight(src)
         return {
-          code: `export default \`${highlighted}\`;`,
+          code: `export default \`${highlighted.replaceAll('`', '\\`')}\`;`,
           map: null, // provide source map if available
         }
       }
     },
   }
+}
+
+function highlight(code) {
+  let highlighted = ''
+  CodeMirror.runMode(code, 'text/x-toit', (token, style) => {
+    highlighted += `<span class="${`cm-${style}` || ''}">${token}</span>`
+  })
+  return highlighted
 }
 
 export default toitPlugin

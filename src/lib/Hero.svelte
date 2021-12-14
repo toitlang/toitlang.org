@@ -9,7 +9,7 @@
 <style lang="postcss">
   h1 {
     text-align: center;
-    margin: 6rem 0;
+    margin: var(--content-vertical-padding) 0;
     background: linear-gradient(
       90deg,
       rgb(255, 239, 190) 0%,

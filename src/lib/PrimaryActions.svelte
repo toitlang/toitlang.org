@@ -3,6 +3,7 @@
   import DownloadIcon from '~icons/feather/download-cloud'
   import DocumentationIcon from '~icons/feather/book'
   import ArrowRight from '~icons/feather/arrow-right'
+  import { releases } from '$lib/releases'
 </script>
 
 <div class="actions">
@@ -12,25 +13,31 @@
       <p>Some text about getting started and what the user can expect when clicking this button.</p>
     </div>
     <div class="Action__buttons">
-      <a class="Button Button--primary" href="/">Beginners guide <ArrowRight /></a>
+      <a class="Button Button--primary" target="_blank" href="https://docs.toit.io/getstarted"
+        >Beginners guide <ArrowRight /></a
+      >
     </div>
   </div>
   <div class="Action">
     <h3 class="Action-title SectionTitle"><DownloadIcon /> Download</h3>
     <div class="Action-body">
-      <p>Some text about getting started and what the user can expect when clicking this button.</p>
+      <p>Download and get started with the latest version of Toit.</p>
     </div>
     <div class="Action__buttons">
-      <a class="Button" href="/">Download Toit v1.1.9 <ArrowRight /></a>
+      <a class="Button" target="_blank" href={releases[0].url}
+        >Download Toit {releases[0].tag} <ArrowRight /></a
+      >
     </div>
   </div>
   <div class="Action">
     <h3 class="Action-title SectionTitle"><DocumentationIcon /> Documentation</h3>
     <div class="Action-body">
-      <p>Some text about the documentation.</p>
+      <p>Learn how to code with Toit and how you can use it in your IoT projects.</p>
     </div>
     <div class="Action__buttons">
-      <a class="Button" href="/">Visit documentation <ArrowRight /></a>
+      <a class="Button" target="_blank" href="https://docs.toit.io/language"
+        >Visit documentation <ArrowRight /></a
+      >
     </div>
   </div>
 </div>

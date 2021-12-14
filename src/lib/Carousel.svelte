@@ -1,46 +1,64 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition'
-
-  import toit1 from '$lib/toit-examples/example1.toit'
-  import toit2 from '$lib/toit-examples/example2.toit'
-  import toit3 from '$lib/toit-examples/example3.toit'
-  import toit4 from '$lib/toit-examples/example4.toit'
-  import toit5 from '$lib/toit-examples/example5.toit'
+  import functions from '$lib/toit-examples/functions.toit'
+  import classes from '$lib/toit-examples/classes.toit'
+  import blocks from '$lib/toit-examples/blocks.toit'
+  import assignment from '$lib/toit-examples/assignment.toit'
+  import loops from '$lib/toit-examples/loops.toit'
+  import exception from '$lib/toit-examples/exception.toit'
+  import packages from '$lib/toit-examples/packages.toit'
 
   type Slide = {
     title: string
     body: string
     code: string
+    url?: string
   }
 
   const slides: Slide[] = [
     {
-      title: 'Getters and Setters',
-      body: `In Toit, getters and setters have the same syntax (for users of a class) as public
-            member variables. Therefore there is no need to write trivial setters and getters.`,
-      code: toit1,
+      title: `Defining functions`,
+      body: `What if you want to say "Hello" a lot without getting your fingers all tired? You should define a function.
+      Calling a function in Toit is as simple as mentioning its name. If the function doesn’t take arguments that’s all you need.`,
+      code: functions,
+      url: `https://docs.toit.io/language/#defining-a-function`,
+    },
+    {
+      title: `Declaration and assignment`,
+      body: `Declaring a variable uses the := syntax. To declare a variable without giving it a value, you can use a question mark: := ?`,
+      code: assignment,
+      url: `https://docs.toit.io/language/syntax/#declaration-and-assignment`,
+    },
+    {
+      title: `Classes and objects`,
+      body: `In Toit, everything is an object, including things that may be non-object "primitive types" in other languages. For example, an integer is an object, and has methods like abs.`,
+      code: classes,
+      url: `https://docs.toit.io/language/objects-constructors-inheritance-interfaces`,
     },
     {
       title: 'Blocks',
       body: `Blocks are a mechanism to conveniently and efficiently provide callbacks to functions. This mechanism is, for example, used for the methods int.repeat and List.do.`,
-      code: toit2,
+      code: blocks,
+      url: `https://docs.toit.io/language/blocks`,
     },
     {
       title: 'Loops',
       body: `Often, loops are used to iterate over a collection. In this case you should usually use the built-in do method of the Collection class. Some collections also have do --reversed for looping from last to first.`,
-      code: toit3,
+      code: loops,
+      url: `https://docs.toit.io/language/loops/#loops`,
     },
-    {
-      title: 'Exception handling',
-      body: `The try block in Toit is used to execute code following the try statement as a “normal” part of the program.
+    //     {
+    //       title: 'Exception handling',
+    //       body: `The try block in Toit is used to execute code following the try statement as a “normal” part of the program.
 
-The finally keyword defines a block of code to run when the try block is final.`,
-      code: toit4,
-    },
+    // The finally keyword defines a block of code to run when the try block is final.`,
+    //       code: exception,
+    //       url: `https://docs.toit.io/language/exceptions`,
+    //     },
     {
       title: 'Integrated package manager',
       body: `The Toit package manager is integrated with the Toit CLI. All of its commands start with the pkg command. `,
-      code: toit5,
+      code: packages,
+      url: `https://docs.toit.io/language/package`,
     },
   ]
 
@@ -51,13 +69,13 @@ The finally keyword defines a block of code to run when the try block is final.`
 
 <div class="carousel">
   {#key visibleSlide}
-    <div class="slide" in:fade out:fade>
+    <div class="slide">
       <div class="slide__description">
         <h2>{currentSlide.title}</h2>
         <p>
           {currentSlide.body}
         </p>
-        <a href="/">Learn more...</a>
+        <a href={currentSlide.url}>Learn more...</a>
       </div>
       <div class="slide__code">
         <pre><code>{@html currentSlide.code}</code></pre>
@@ -74,23 +92,14 @@ The finally keyword defines a block of code to run when the try block is final.`
 <style lang="postcss">
   .carousel {
     position: relative;
-    padding-top: 20rem;
   }
+
   .slide {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    display: flex;
-  }
-  .slide__description,
-  .slide__code {
-    flex: 1;
-    width: 50%;
+    padding-bottom: 3rem;
   }
   .slide__description {
     font-size: 1.25rem;
-    border-right: 2px solid var(--primary-color);
-    padding-right: 3rem;
+    margin-bottom: 3rem;
     & h2 {
       font-size: 1.875rem;
       font-weight: bold;
@@ -107,7 +116,27 @@ The finally keyword defines a block of code to run when the try block is final.`
     }
   }
   .slide__code {
-    padding-left: 3rem;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  @media (min-width: 800px) {
+    .slide {
+      display: flex;
+      min-height: 22rem;
+    }
+    .slide__description,
+    .slide__code {
+      width: 50%;
+      min-width: 20rem;
+    }
+    .slide__description {
+      border-right: 2px solid var(--primary-color);
+      padding-right: 3rem;
+      margin-bottom: 0;
+    }
+    .slide__code {
+      padding-left: 3rem;
+    }
   }
   .pagination {
     display: flex;

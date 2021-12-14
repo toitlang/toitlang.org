@@ -7,7 +7,20 @@ const breakpointsRem = {
   huge: 100, // 1600px
 }
 
-module.exports = (minWidth, maxWidth, minSize, maxSize) => {
+// To be used in your CSS like this:
+//
+//     width: linearClamp(small, large, 3, 6);
+//
+// This will create a linear interpolation between 3rem and 6rem inside the
+// small and large breakpoints.
+//
+// You can also directly specify the rem values inside the function:
+//
+//     width: linearClamp(10, 40, 3, 6)
+//
+// This will interpolate between 3rem and 6rem for the breakpoints 10rem and
+// 40rem.
+const linearClamp = (minWidth, maxWidth, minSize, maxSize) => {
   minWidth = breakpointsRem[minWidth] ?? parseFloat(minWidth)
   maxWidth = breakpointsRem[maxWidth] ?? parseFloat(maxWidth)
   minSize = parseFloat(minSize)
@@ -19,3 +32,5 @@ module.exports = (minWidth, maxWidth, minSize, maxSize) => {
 
   return `clamp(${minSize}rem, ${preferredValue}, ${maxSize}rem)`
 }
+
+module.exports = linearClamp

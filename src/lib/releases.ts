@@ -1,4 +1,5 @@
 // Coming from: https://api.github.com/repos/toitlang/toit/releases
+// This file gets updated in the CI pipeline.
 import releasesJson from '$lib/releases.json'
 
 export type Release = {

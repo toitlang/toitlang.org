@@ -23,6 +23,9 @@ jobs:
           # NOTE: we don't actually run tests here!
           runTests: false
 
+      - name: Download latest releases
+        run: curl https://api.github.com/repos/toitlang/toit/releases > src/lib/releases.json
+
       # Now we run our lints. This is the place where you could run other tests
       # unrelated to cypress (e.g.: unit tests).
       - name: Run lints

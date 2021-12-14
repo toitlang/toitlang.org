@@ -5,6 +5,6 @@ module.exports = {
     // Every plugin here needs to be added in svelte.config.js as well!
     'postcss-nesting': {},
     'postcss-lab-function': { preserve: false },
-    'postcss-functions': { functions: { linearClamp: require('./postcss-linear-clamp.cjs') } },
+    'postcss-functions': { functions: { linearClamp: require('./tool/postcss-linear-clamp.cjs') } },
   },
 }

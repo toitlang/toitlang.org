@@ -25,7 +25,6 @@
     height: var(--header-height);
     color: white;
     padding: 0 var(--calculated-content-padding);
-    background: black;
     z-index: 1000;
   }
   .toit :global(svg) {

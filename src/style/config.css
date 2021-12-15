@@ -1,6 +1,6 @@
 :root {
   /* Layout */
-  --header-height: linearClamp(tiny, huge, 3rem, 7rem);
+  --header-height: linearClamp(tiny, huge, 5rem, 7rem);
 
   --max-content-width: 64rem;
   --content-padding: linearClamp(tiny, medium, 1.5, 3);
@@ -12,9 +12,13 @@
 
   /* Colors */
   --primary-color: lch(50% 61 287);
+  --primary-color-light: lch(80% 61 287);
   --primary-color-light-bg: lch(50% 61 287 / 0.1);
   --primary-color-dark-bg: lch(50% 61 287 / 0.4);
   --primary-color-strong: lch(40% 61 287);
+
+  --golden-color: lch(84% 57 79);
+  --golden-color-light: lch(95% 57 79);
 
   /* Components */
   --header-font-size: linearClamp(tiny, huge, 2, 2.5);

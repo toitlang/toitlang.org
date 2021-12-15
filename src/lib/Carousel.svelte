@@ -97,7 +97,7 @@
     padding-bottom: 3rem;
   }
   .slide__description {
-    font-size: 1.25rem;
+    font-size: linearClamp(tiny, large, 1, 1.25);
     margin-bottom: 3rem;
     & h2 {
       font-size: 1.875rem;

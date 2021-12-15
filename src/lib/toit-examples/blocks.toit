@@ -9,4 +9,4 @@ main:
 
   // Naming the argument.
   ["Siri", "John"].do: | name |
-      print name
+    print name

@@ -4,20 +4,20 @@
 <link rel="icon" href="/favicon.svg" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-
+<title>Toit programming language</title><meta property="description" content="Toit is a modern high-level language designed specifically for microcontrollers" data-svelte="svelte-rng4kx"><meta property="keywords" content="toit programming language iot microcontrollers live reloading hot reloading" data-svelte="svelte-rng4kx">
 
 		
 
-		<link rel="modulepreload" href="/_app/start-c9cc3a1e.js">
-		<link rel="modulepreload" href="/_app/chunks/vendor-cbd0a745.js">
-		<link rel="modulepreload" href="/_app/pages/__layout.svelte-5c692dd4.js">
-		<link rel="modulepreload" href="/_app/pages/index.svelte-eb96ded4.js">
+		<link rel="modulepreload" href="/_app/start-5a7b93bc.js">
+		<link rel="modulepreload" href="/_app/chunks/vendor-e55e957e.js">
+		<link rel="modulepreload" href="/_app/pages/__layout.svelte-01231715.js">
+		<link rel="modulepreload" href="/_app/pages/index.svelte-354e0cf7.js">
 		<link rel="stylesheet" href="/_app/assets/start-fcddce2f.css">
-		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-f504a1f8.css">
-		<link rel="stylesheet" href="/_app/assets/pages/index.svelte-7e6d84a0.css">
+		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-5702d5de.css">
+		<link rel="stylesheet" href="/_app/assets/pages/index.svelte-a8ad0c51.css">
 
 		<script type="module">
-			import { start } from "/_app/start-c9cc3a1e.js";
+			import { start } from "/_app/start-5a7b93bc.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"","assets":""},
@@ -30,8 +30,8 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/_app/pages/__layout.svelte-5c692dd4.js"),
-						import("/_app/pages/index.svelte-eb96ded4.js")
+						import("/_app/pages/__layout.svelte-01231715.js"),
+						import("/_app/pages/index.svelte-354e0cf7.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -46,22 +46,28 @@
 <div id="svelte">
 
 
-<header class="svelte-c1ix0a"><nav class="svelte-c1ix0a"><div class="toit svelte-c1ix0a"><svg width="320" height="82" viewBox="0 0 320 82" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M192.05 71.073V17.987h24.21V9h-58.362v8.987H182.2v53.086h9.85Z" fill="currentColor"></path><path d="M228.315 72c15.281 0 25.499-9.728 25.499-23.903 0-14.36-10.218-23.995-25.499-23.995-15.189 0-25.406 9.635-25.406 23.995 0 14.175 10.217 23.903 25.406 23.903Zm0-8.894c-11.046 0-15.649-5.281-15.649-15.009 0-9.82 4.603-15.194 15.649-15.194 11.138 0 15.741 5.373 15.741 15.194 0 9.728-4.603 15.009-15.741 15.009ZM275.51 19.654V9h-9.941v10.654h9.941Zm0 51.42V25.027h-9.941v46.045h9.941ZM319.898 71.073v-8.986h-8.284c-5.707 0-8.285-1.483-8.285-7.134V33.366h16.569v-8.338h-16.569V9h-9.85v16.028h-7.732v8.338h7.732V55.51c0 11.21 6.076 15.564 15.925 15.564h10.494Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M.124 3.456A4.502 4.502 0 0 1 4.564 0c.37-.006.745.034 1.12.124l47.112 11.284h.002l.001.001c.276.066.55.139.82.217a32.248 32.248 0 0 0 15.764 0c.27-.078.544-.15.82-.217h.003L117.318.124c.375-.09.751-.13 1.119-.124a4.502 4.502 0 0 1 1.109 8.877l-47.17 11.266a39.23 39.23 0 0 1-.585.157 8.185 8.185 0 0 0-5.79 7.819v5.76c0 2.72.786 5.382 2.264 7.669l17.93 27.727c2.11 3.262 6.742 3.67 9.392.82l19.618-21.103a4.5 4.5 0 0 1 6.592 6.128l-19.619 21.103c-6.64 7.142-18.243 6.13-23.54-2.06L62.34 48.96a1 1 0 0 0-1.68 0L44.364 74.163c-5.296 8.191-16.9 9.203-23.54 2.06L1.205 55.122a4.5 4.5 0 0 1 6.592-6.128l19.618 21.103c2.65 2.85 7.282 2.442 9.392-.82l17.93-27.727A14.121 14.121 0 0 0 57 33.88v-5.76a8.185 8.185 0 0 0-5.79-7.82c-.195-.05-.39-.102-.584-.156L3.456 8.878A4.5 4.5 0 0 1 .124 3.456Z" fill="currentColor"></path></svg></div>
-    <ul class="svelte-c1ix0a"><li class="svelte-c1ix0a"><a target="_blank" href="https://docs.toit.io/language" class="svelte-c1ix0a">Documentation</a></li>
-      <li class="svelte-c1ix0a"><a target="_blank" href="https://blog.toit.io" class="svelte-c1ix0a">Blog</a></li>
-      <li class="svelte-c1ix0a"><a target="_blank" href="https://github.com/toitlang/toit" class="svelte-c1ix0a"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></g><!-- HTML_TAG_END --></svg></a></li></ul></nav>
+<header class="svelte-1nq6hiy"><nav class="svelte-1nq6hiy"><div class="toit svelte-1nq6hiy"><svg width="320" height="82" viewBox="0 0 320 82" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M192.05 71.073V17.987h24.21V9h-58.362v8.987H182.2v53.086h9.85Z" fill="currentColor"></path><path d="M228.315 72c15.281 0 25.499-9.728 25.499-23.903 0-14.36-10.218-23.995-25.499-23.995-15.189 0-25.406 9.635-25.406 23.995 0 14.175 10.217 23.903 25.406 23.903Zm0-8.894c-11.046 0-15.649-5.281-15.649-15.009 0-9.82 4.603-15.194 15.649-15.194 11.138 0 15.741 5.373 15.741 15.194 0 9.728-4.603 15.009-15.741 15.009ZM275.51 19.654V9h-9.941v10.654h9.941Zm0 51.42V25.027h-9.941v46.045h9.941ZM319.898 71.073v-8.986h-8.284c-5.707 0-8.285-1.483-8.285-7.134V33.366h16.569v-8.338h-16.569V9h-9.85v16.028h-7.732v8.338h7.732V55.51c0 11.21 6.076 15.564 15.925 15.564h10.494Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M.124 3.456A4.502 4.502 0 0 1 4.564 0c.37-.006.745.034 1.12.124l47.112 11.284h.002l.001.001c.276.066.55.139.82.217a32.248 32.248 0 0 0 15.764 0c.27-.078.544-.15.82-.217h.003L117.318.124c.375-.09.751-.13 1.119-.124a4.502 4.502 0 0 1 1.109 8.877l-47.17 11.266a39.23 39.23 0 0 1-.585.157 8.185 8.185 0 0 0-5.79 7.819v5.76c0 2.72.786 5.382 2.264 7.669l17.93 27.727c2.11 3.262 6.742 3.67 9.392.82l19.618-21.103a4.5 4.5 0 0 1 6.592 6.128l-19.619 21.103c-6.64 7.142-18.243 6.13-23.54-2.06L62.34 48.96a1 1 0 0 0-1.68 0L44.364 74.163c-5.296 8.191-16.9 9.203-23.54 2.06L1.205 55.122a4.5 4.5 0 0 1 6.592-6.128l19.618 21.103c2.65 2.85 7.282 2.442 9.392-.82l17.93-27.727A14.121 14.121 0 0 0 57 33.88v-5.76a8.185 8.185 0 0 0-5.79-7.82c-.195-.05-.39-.102-.584-.156L3.456 8.878A4.5 4.5 0 0 1 .124 3.456Z" fill="currentColor"></path></svg></div>
+    <ul class="svelte-1nq6hiy"><li class="svelte-1nq6hiy"><a target="_blank" href="https://docs.toit.io/language" class="svelte-1nq6hiy">Documentation</a></li>
+      <li class="svelte-1nq6hiy"><a target="_blank" href="https://blog.toit.io" class="svelte-1nq6hiy">Blog</a></li>
+      <li class="svelte-1nq6hiy"><a target="_blank" href="https://github.com/toitlang/toit" class="svelte-1nq6hiy"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></g><!-- HTML_TAG_END --></svg></a></li></ul></nav>
 </header>
 
 <main class="svelte-datkb3">
 
+<section class="hero svelte-1qxxnat"><h1 class="svelte-n5gml3">Toit is a modern high-level language designed specifically for microcontrollers</h1>
 
-<section class="hero svelte-jlmq4k"><h1 class="svelte-1xtlvfi">Toit is a free and open source object-oriented language designed specifically for IoT</h1>
+<p class="svelte-n5gml3">Toit is optimised for <strong class="svelte-n5gml3">live reloading</strong> on your microcontroller. Your code runs
+  incrementally as you write it and you get <strong class="svelte-n5gml3">instant feedback</strong>. Push changes over
+  your local
+  <strong class="svelte-n5gml3">WiFi</strong> in two seconds and reserve your USB cable for charging your phone. You iterate
+  quickly, learn fast, and build better things.
+</p>
 
-<div class="carousel svelte-1ddc0yk"><div class="slide svelte-1ddc0yk"><div class="slide__description svelte-1ddc0yk"><h2 class="svelte-1ddc0yk">Defining functions</h2>
-        <p class="svelte-1ddc0yk">What if you want to say &quot;Hello&quot; a lot without getting your fingers all tired? You should define a function.
+<div class="carousel svelte-1467vug"><div class="slide svelte-1467vug"><div class="slide__description svelte-1467vug"><h2 class="svelte-1467vug">Defining functions</h2>
+        <p class="svelte-1467vug">What if you want to say &quot;Hello&quot; a lot without getting your fingers all tired? You should define a function.
       Calling a function in Toit is as simple as mentioning its name. If the function doesn’t take arguments that’s all you need.</p>
-        <a href="https://docs.toit.io/language/#defining-a-function" class="svelte-1ddc0yk">Learn more...</a></div>
-      <div class="slide__code svelte-1ddc0yk"><pre><code><!-- HTML_TAG_START --><span class="cm-def">hi</span><span class="cm-operator">:</span><span class="cm-undefined">
+        <a href="https://docs.toit.io/language/#defining-a-function" class="svelte-1467vug">Learn more...</a></div>
+      <div class="slide__code svelte-1467vug"><pre><code><!-- HTML_TAG_START --><span class="cm-def">hi</span><span class="cm-operator">:</span><span class="cm-undefined">
 </span><span class="cm-null">  </span><span class="cm-variable-2">print</span><span class="cm-null"> </span><span class="cm-string">"Hello World!"</span><span class="cm-undefined">
 </span><span class="cm-undefined">
 </span><span class="cm-def">greet</span><span class="cm-null"> </span><span class="cm-variable">name</span><span class="cm-operator">:</span><span class="cm-undefined">
@@ -70,7 +76,7 @@
 </span><span class="cm-def">main</span><span class="cm-operator">:</span><span class="cm-undefined">
 </span><span class="cm-null">  </span><span class="cm-variable-2">hi</span><span class="cm-undefined">
 </span><span class="cm-null">  </span><span class="cm-variable-2">greet</span><span class="cm-null"> </span><span class="cm-string">"Kasper"</span><!-- HTML_TAG_END --></code></pre></div></div>
-  <div class="pagination svelte-1ddc0yk"><button class="svelte-1ddc0yk active">1</button><button class="svelte-1ddc0yk">2</button><button class="svelte-1ddc0yk">3</button><button class="svelte-1ddc0yk">4</button><button class="svelte-1ddc0yk">5</button><button class="svelte-1ddc0yk">6</button></div>
+  <div class="pagination svelte-1467vug"><button class="svelte-1467vug active">1</button><button class="svelte-1467vug">2</button><button class="svelte-1467vug">3</button><button class="svelte-1467vug">4</button><button class="svelte-1467vug">5</button><button class="svelte-1467vug">6</button></div>
 </div></section>
 
 <section><div class="actions svelte-68l4kr"><div class="Action svelte-68l4kr"><h3 class="Action-title SectionTitle"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9l-14 9V3z"/></g><!-- HTML_TAG_END --></svg> Get started</h3>
@@ -78,15 +84,25 @@
     <div class="Action__buttons"><a class="Button Button--primary" target="_blank" href="https://docs.toit.io/getstarted/installation">Installation guide <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7l-7 7"/></g><!-- HTML_TAG_END --></svg></a></div></div>
   <div class="Action svelte-68l4kr"><h3 class="Action-title SectionTitle"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 17l4 4l4-4"/><path d="M12 12v9"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></g><!-- HTML_TAG_END --></svg> Download</h3>
     <div class="Action-body svelte-68l4kr"><p class="svelte-68l4kr">Download and get started with the latest version of Toit.</p></div>
-    <div class="Action__buttons"><a class="Button" target="_blank" href="https://github.com/toitlang/toit/releases/tag/v0.10.0">Download Toit v0.10.0 <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7l-7 7"/></g><!-- HTML_TAG_END --></svg></a></div></div>
+    <div class="Action__buttons"><a class="Button" target="_blank" href="https://github.com/toitlang/toit/releases/tag/v0.10.2">Download Toit v0.10.2 <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7l-7 7"/></g><!-- HTML_TAG_END --></svg></a></div></div>
   <div class="Action svelte-68l4kr"><h3 class="Action-title SectionTitle"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></g><!-- HTML_TAG_END --></svg> Documentation</h3>
     <div class="Action-body svelte-68l4kr"><p class="svelte-68l4kr">Learn how to code with Toit and how you can use it in your IoT projects.</p></div>
     <div class="Action__buttons"><a class="Button" target="_blank" href="https://docs.toit.io/language">Visit documentation <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7l-7 7"/></g><!-- HTML_TAG_END --></svg></a></div></div>
 </div></section>
 
-<section><div class="news-and-articles svelte-jlmq4k"><div class="news svelte-jlmq4k"><div class="news-container svelte-jlmq4k"><h3 class="SectionTitle"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><circle cx="12" cy="14" r="4"/><path d="M12 6h.01"/></g><!-- HTML_TAG_END --></svg> Latest news</h3>
+<section><div class="news-and-articles svelte-1qxxnat"><div class="news svelte-1qxxnat"><div class="news-container svelte-1qxxnat"><h3 class="SectionTitle"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><circle cx="12" cy="14" r="4"/><path d="M12 6h.01"/></g><!-- HTML_TAG_END --></svg> Latest news</h3>
 
-<div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.10.0 release
+<div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.10.2 release
+      <span class="Entry-date svelte-fb65in">Dec. 15th, 2021</span></h3>
+
+    <p class="Entry-body"></p>
+    <p class="Entry-actions"><a href="https://github.com/toitlang/toit/releases/tag/v0.10.2" target="_blank" class="svelte-fb65in">Get it!</a></p>
+  </div><div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.10.1 release
+      <span class="Entry-date svelte-fb65in">Dec. 14th, 2021</span></h3>
+
+    <p class="Entry-body"></p>
+    <p class="Entry-actions"><a href="https://github.com/toitlang/toit/releases/tag/v0.10.1" target="_blank" class="svelte-fb65in">Get it!</a></p>
+  </div><div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.10.0 release
       <span class="Entry-date svelte-fb65in">Dec. 13th, 2021</span></h3>
 
     <p class="Entry-body">Improve support for macOS.</p>
@@ -106,18 +122,8 @@
 
     <p class="Entry-body">Improve networking.</p>
     <p class="Entry-actions"><a href="https://github.com/toitlang/toit/releases/tag/v0.0.3" target="_blank" class="svelte-fb65in">Get it!</a></p>
-  </div><div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.0.2 release
-      <span class="Entry-date svelte-fb65in">Dec. 10th, 2021</span></h3>
-
-    <p class="Entry-body"></p>
-    <p class="Entry-actions"><a href="https://github.com/toitlang/toit/releases/tag/v0.0.2" target="_blank" class="svelte-fb65in">Get it!</a></p>
-  </div><div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.0.1 release
-      <span class="Entry-date svelte-fb65in">Dec. 9th, 2021</span></h3>
-
-    <p class="Entry-body">Initial release.</p>
-    <p class="Entry-actions"><a href="https://github.com/toitlang/toit/releases/tag/v0.0.1" target="_blank" class="svelte-fb65in">Get it!</a></p>
   </div></div></div>
-    <div class="articles svelte-jlmq4k"><div class="Article svelte-r6zoev"><h3 class="Article-title SectionTitle">Writing a driver in Toit</h3>
+    <div class="articles svelte-1qxxnat"><div class="Article svelte-r6zoev"><h3 class="Article-title SectionTitle">Writing a driver in Toit</h3>
 
   <div class="Article-body svelte-r6zoev"><p class="svelte-r6zoev">Just a few lines of Toit code are needed to reap the full benefits of the Toit ecosystem —
       without having to rely on firmware developers.

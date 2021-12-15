@@ -66,37 +66,41 @@
   $: currentSlide = slides[visibleSlide]
 </script>
 
-<div class="carousel">
+<div class="CodeSamples">
   {#key visibleSlide}
-    <div class="slide">
-      <div class="slide__description">
+    <div class="Slide">
+      <div class="Slide-description">
         <h2>{currentSlide.title}</h2>
         <p>
           {currentSlide.body}
         </p>
         <a href={currentSlide.url}>Learn more...</a>
       </div>
-      <div class="slide__code">
+      <div class="Slide-code">
         <pre><code>{@html currentSlide.code}</code></pre>
       </div>
     </div>
   {/key}
-  <div class="pagination">
+  <div class="Pagination">
     {#each Array(slideCount) as _, i}
-      <button class:active={visibleSlide == i} on:click={() => (visibleSlide = i)}>{i + 1}</button>
+      <button
+        class="Pagination-button"
+        class:active={visibleSlide == i}
+        on:click={() => (visibleSlide = i)}>{i + 1}</button
+      >
     {/each}
   </div>
 </div>
 
 <style lang="postcss">
-  .carousel {
+  .CodeSamples {
     position: relative;
   }
 
-  .slide {
+  .Slide {
     padding-bottom: 3rem;
   }
-  .slide__description {
+  .Slide-description {
     font-size: linearClamp(tiny, large, 1, 1.25);
     margin-bottom: 3rem;
     & h2 {
@@ -114,34 +118,34 @@
       color: var(--primary-color);
     }
   }
-  .slide__code {
+  .Slide-code {
     max-width: 100%;
     overflow-x: hidden;
   }
   @media (min-width: 800px) {
-    .slide {
+    .Slide {
       display: flex;
       min-height: 22rem;
     }
-    .slide__description,
-    .slide__code {
+    .Slide-description,
+    .Slide-code {
       width: 50%;
       min-width: 20rem;
     }
-    .slide__description {
+    .Slide-description {
       border-right: 2px solid var(--primary-color);
       padding-right: 3rem;
       margin-bottom: 0;
     }
-    .slide__code {
+    .Slide-code {
       padding-left: 3rem;
     }
   }
-  .pagination {
+  .Pagination {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    & button {
+    & .Pagination-button {
       border: 2px solid var(--primary-color);
       border-radius: 0.25rem;
       background: transparent;

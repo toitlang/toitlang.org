@@ -1,5 +1,5 @@
 <script>
-  import Carousel from './Carousel.svelte'
+  import CodeSamples from './CodeSamples.svelte'
 </script>
 
 <h1>Toit is a modern high-level language designed specifically for microcontrollers</h1>
@@ -12,7 +12,7 @@
   quickly, learn fast, and build better things.
 </p>
 
-<Carousel />
+<CodeSamples />
 
 <style lang="postcss">
   h1 {

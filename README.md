@@ -34,13 +34,27 @@ No SASS is used in this project.
 
 ## Building
 
-Before creating a production version of your app, install an
-[adapter](https://kit.svelte.dev/docs#adapters) for your target environment.
+This page is built with the static [svelte kit
+adapter](https://www.npmjs.com/package/@sveltejs/adapter-static), so all pages
+are prebuilt as static html pages and then served by GitHub Pages.
 
-Then:
+Run this command to build the site:
 
 ```bash
 npm run build
 ```
 
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+> You can preview the built app with `npm run preview`.
+
+## Testing
+
+Tests are written with cypress.
+
+```bash
+npx cypress run # Simply runs the test
+npx cypress open # Opens the cypress test runner
+```
+
+## License
+
+See [LICENSE](./LICENSE) file.

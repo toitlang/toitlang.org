@@ -30,7 +30,10 @@ In addition to these preprocessors, we added the `linearClamp` function which
 is defined in `./tool/postcss-linear-clamp.cjs`. See the docs there on how to
 use it.
 
-No SASS is used in this project.
+Where it makes sense, the [SUIT](https://suitcss.github.io) naming convention is
+used. If it's a simple component with a few elements then they can be styled
+directly. But if it's a reusable component (like `.Button`) then a SUIT
+component should be created.
 
 ## Building
 

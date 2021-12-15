@@ -8,11 +8,11 @@
 <svelte:head>
   <title>Toit programming language</title>
   <meta
-    property="description"
+    name="description"
     content="Toit is a modern high-level language designed specifically for microcontrollers"
   />
   <meta
-    property="keywords"
+    name="keywords"
     content="toit programming language iot microcontrollers live reloading hot reloading"
   />
 </svelte:head>

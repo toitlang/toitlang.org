@@ -14,7 +14,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-## CSS
+### CSS
 
 This project is using only valid CSS but with two preprocessors (via postcss)
 that allow to use future CSS spec:
@@ -34,6 +34,13 @@ Where it makes sense, the [SUIT](https://suitcss.github.io) naming convention is
 used. If it's a simple component with a few elements then they can be styled
 directly. But if it's a reusable component (like `.Button`) then a SUIT
 component should be created.
+
+### Icons
+
+All icons are imported via
+[unplugin-icons](https://github.com/antfu/unplugin-icons). If possible, the
+[feather icon pack](https://icones.js.org/collection/feather) should be used
+(careful: there are two feather packs).
 
 ## Building
 

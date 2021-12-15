@@ -16,7 +16,7 @@
       <a
         class="Button Button--primary"
         target="_blank"
-        href="https://docs.toit.io/getstarted/installation">Installation guide <ArrowRight /></a
+        href="https://github.com/toitlang/toit#installation">Installation guide <ArrowRight /></a
       >
     </div>
   </div>

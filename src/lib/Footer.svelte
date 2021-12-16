@@ -1,7 +1,7 @@
 <script>
   import ToitLogo from '/static/images/toit-logo.svg'
   import TwitterIcon from '~icons/feather/twitter'
-  import LinkedInIcon from '~icons/feather/linkedin'
+  import DiscordIcon from '~icons/la/discord'
   import RedditIcon from '~icons/ps/reddit'
 </script>
 
@@ -11,9 +11,18 @@
   </div>
 
   <div class="social">
-    <a href="https://twitter.com/toitware"> <TwitterIcon /></a>
-    <a href="https://www.linkedin.com/company/toitio"><LinkedInIcon /></a>
-    <a href="https://www.reddit.com/r/toit/"><RedditIcon /></a>
+    <a href="https://twitter.com/toitlang">
+      <span class="u-linkTitle">Twitter</span>
+      <TwitterIcon />
+    </a>
+    <a href="https://www.reddit.com/r/toitlang/">
+      <span class="u-linkTitle">Reddit</span>
+      <RedditIcon />
+    </a>
+    <a href="https://discord.gg/ugjgGbW6">
+      <span class="u-linkTitle">Discord</span>
+      <DiscordIcon />
+    </a>
   </div>
 
   <ul class="links">

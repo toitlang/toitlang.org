@@ -152,6 +152,8 @@
       color: white;
       width: 1.875rem;
       height: 1.875rem;
+      padding: 0;
+      text-align: center;
       &:hover {
         background: var(--primary-color-dark-bg);
       }

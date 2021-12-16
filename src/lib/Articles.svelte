@@ -25,6 +25,7 @@
       target="_blank"
       class="Button"
     >
+      <span class="u-linkTitle">Visit blog.toit.io to</span>
       Read more <ArrowRight />
     </a>
   </div>
@@ -46,6 +47,7 @@
       target="_blank"
       class="Button"
     >
+      <span class="u-linkTitle">Visit blog.toit.io to</span>
       Read more <ArrowRight />
     </a>
   </div>

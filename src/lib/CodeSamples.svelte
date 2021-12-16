@@ -158,8 +158,16 @@
         background: var(--primary-color-dark-bg);
       }
       &.active {
-        background: var(--primary-color);
         font-weight: bold;
+        color: white;
+        --color: var(--primary-color-strong);
+        background: var(--color);
+        border-color: var(--color);
+        &:hover {
+          --color: var(--primary-color-dark);
+          background: var(--color);
+          border-color: var(--color);
+        }
       }
     }
   }

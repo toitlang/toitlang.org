@@ -20,9 +20,11 @@
 }
 .Button--primary {
   color: white;
-  background: var(--primary-color);
+  --color: var(--primary-color-strong);
+  background: var(--color);
+  border-color: var(--color);
   &:hover {
-    --color: var(--primary-color-strong);
+    --color: var(--primary-color-dark);
     background: var(--color);
     border-color: var(--color);
   }

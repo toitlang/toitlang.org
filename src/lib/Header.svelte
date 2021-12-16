@@ -11,7 +11,12 @@
     <ul>
       <li><a target="_blank" href="https://docs.toit.io/language">Documentation</a></li>
       <li><a target="_blank" href="https://blog.toit.io">Blog</a></li>
-      <li><a target="_blank" href="https://github.com/toitlang/toit"><GithubIcon /></a></li>
+      <li>
+        <a target="_blank" href="https://github.com/toitlang/toit">
+          <span class="u-linkTitle">GitHub</span>
+          <GithubIcon />
+        </a>
+      </li>
     </ul>
   </nav>
 </header>

@@ -19,7 +19,7 @@
       <span class="u-linkTitle">Reddit</span>
       <RedditIcon />
     </a>
-    <a href="https://discord.gg/ugjgGbW6">
+    <a href="https://discord.gg/Q7Y9VQ5nh2">
       <span class="u-linkTitle">Discord</span>
       <DiscordIcon />
     </a>

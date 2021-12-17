@@ -5,7 +5,7 @@
   import RedditIcon from '~icons/ps/reddit'
 </script>
 
-<nav>
+<section>
   <div class="toit-logo">
     <ToitLogo />
   </div>
@@ -30,10 +30,10 @@
     <li><a target="_blank" href="https://blog.toit.io">Blog</a></li>
     <li><a target="_blank" href="https://github.com/toitlang/toit">GitHub</a></li>
   </ul>
-</nav>
+</section>
 
 <style lang="postcss">
-  nav {
+  section {
     border-top: 2px solid black;
     margin-top: var(--content-vertical-padding);
     padding-top: 1.5rem;

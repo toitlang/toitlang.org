@@ -11,7 +11,10 @@
 
     window.dataLayer = window.dataLayer || []
 
-    const gtag: Gtag.Gtag = function () {
+    /* eslint-disable */
+    function gtag(...args: unknown[]) {
+      // The Google implementation of gtag requires the original `arguments`
+      // object to be passed.
       window.dataLayer.push(arguments)
     }
     gtag('js', new Date())

@@ -16,10 +16,12 @@
     "@fontsource/roboto-mono": "^4.5.0"
   },
   "devDependencies": {
+    "@beyonk/gdpr-cookie-consent-banner": "^9.0.3",
     "@iconify/json": "^1.1.440",
     "@poppanator/sveltekit-svg": "^0.2.2",
     "@sveltejs/adapter-static": "^1.0.0-next.21",
     "@sveltejs/kit": "next",
+    "@types/gtag.js": "^0.0.8",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
     "codemirror": "^5.64.0",

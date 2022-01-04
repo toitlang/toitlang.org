@@ -3,6 +3,7 @@
   import Hero from '$lib/Hero.svelte'
   import LatestNews from '$lib/LatestNews.svelte'
   import PrimaryActions from '$lib/PrimaryActions.svelte'
+  import ThreeExample from '$lib/ThreeExample.svelte'
 </script>
 
 <svelte:head>
@@ -19,6 +20,10 @@
 
 <section class="hero">
   <Hero />
+</section>
+
+<section>
+  <ThreeExample />
 </section>
 
 <section>

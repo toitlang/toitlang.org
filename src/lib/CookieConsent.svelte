@@ -11,8 +11,7 @@
 
     window.dataLayer = window.dataLayer || []
 
-    /* eslint-disable */
-    function gtag(...args: unknown[]) {
+    const gtag: (...args: unknown[]) => void = function () {
       // The Google implementation of gtag requires the original `arguments`
       // object to be passed.
       window.dataLayer.push(arguments)

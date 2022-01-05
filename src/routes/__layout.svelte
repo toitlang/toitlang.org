@@ -23,6 +23,7 @@
   }
   main > :global(section),
   footer {
+    position: relative;
     padding: var(--content-vertical-padding) var(--calculated-content-padding);
   }
 </style>

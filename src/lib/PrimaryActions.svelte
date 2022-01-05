@@ -7,12 +7,12 @@
 </script>
 
 <div class="actions">
-  <div class="Action">
-    <h3 class="Action-title SectionTitle"><GetStartedIcon /> Get started</h3>
-    <div class="Action-body">
+  <div class="Feature">
+    <h3 class="Feature-title"><GetStartedIcon /> Get started</h3>
+    <div class="Feature-body">
       <p>Follow this easy step-by-step guide to get up and running with Toit.</p>
     </div>
-    <div class="Action__buttons">
+    <div class="Feature-actions">
       <a
         class="Button Button--primary"
         target="_blank"
@@ -20,23 +20,23 @@
       >
     </div>
   </div>
-  <div class="Action">
-    <h3 class="Action-title SectionTitle"><DownloadIcon /> Download</h3>
-    <div class="Action-body">
+  <div class="Feature">
+    <h3 class="Feature-title"><DownloadIcon /> Download</h3>
+    <div class="Feature-body">
       <p>Download and get started with the latest version of Toit.</p>
     </div>
-    <div class="Action__buttons">
+    <div class="Feature-actions">
       <a class="Button" target="_blank" href={releases[0].url}
         >Download Toit {releases[0].tag} <ArrowRight /></a
       >
     </div>
   </div>
-  <div class="Action">
-    <h3 class="Action-title SectionTitle"><DocumentationIcon /> Documentation</h3>
-    <div class="Action-body">
+  <div class="Feature">
+    <h3 class="Feature-title"><DocumentationIcon /> Documentation</h3>
+    <div class="Feature-body">
       <p>Learn how to code with Toit and how you can use it in your IoT projects.</p>
     </div>
-    <div class="Action__buttons">
+    <div class="Feature-actions">
       <a class="Button" target="_blank" href="https://docs.toit.io/language"
         >Visit documentation <ArrowRight /></a
       >
@@ -51,17 +51,5 @@
     justify-content: space-between;
     align-items: stretch;
     flex-wrap: wrap;
-  }
-  .Action {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-width: 13rem;
-  }
-  .Action-body {
-    flex: 1;
-    & p {
-      margin: 1.5rem 0;
-    }
   }
 </style>

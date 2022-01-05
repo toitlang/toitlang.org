@@ -29,4 +29,5 @@ a {
 
 strong {
   font-weight: bold;
+  color: var(--primary-color);
 }

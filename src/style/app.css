@@ -12,5 +12,6 @@
 
 @import './app/_general';
 @import './app/Button';
+@import './app/Feature';
 @import './app/SectionTitle';
 @import './app/u-linkTitle';

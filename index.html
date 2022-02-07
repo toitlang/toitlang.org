@@ -9,16 +9,16 @@
 
 		
 
-		<link rel="modulepreload" href="/_app/start-753e0783.js">
+		<link rel="modulepreload" href="/_app/start-af7c7820.js">
 		<link rel="modulepreload" href="/_app/chunks/vendor-7bee336e.js">
 		<link rel="modulepreload" href="/_app/pages/__layout.svelte-1fb7277a.js">
-		<link rel="modulepreload" href="/_app/pages/index.svelte-df56a030.js">
+		<link rel="modulepreload" href="/_app/pages/index.svelte-89133864.js">
 		<link rel="stylesheet" href="/_app/assets/start-fcddce2f.css">
 		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-78a31f31.css">
 		<link rel="stylesheet" href="/_app/assets/pages/index.svelte-ad2529d6.css">
 
 		<script type="module">
-			import { start } from "/_app/start-753e0783.js";
+			import { start } from "/_app/start-af7c7820.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"","assets":""},
@@ -32,7 +32,7 @@
 					error: null,
 					nodes: [
 						import("/_app/pages/__layout.svelte-1fb7277a.js"),
-						import("/_app/pages/index.svelte-df56a030.js")
+						import("/_app/pages/index.svelte-89133864.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -86,7 +86,7 @@
     <div class="Feature-actions"><a class="Button Button--primary" target="_blank" href="https://github.com/toitlang/toit#installation">Installation guide <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7l-7 7"/></g><!-- HTML_TAG_END --></svg></a></div></div>
   <div class="Feature"><h3 class="Feature-title"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 17l4 4l4-4"/><path d="M12 12v9"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></g><!-- HTML_TAG_END --></svg> Download</h3>
     <div class="Feature-body"><p>Download and get started with the latest version of Toit.</p></div>
-    <div class="Feature-actions"><a class="Button" target="_blank" href="https://github.com/toitlang/toit/releases/tag/v0.15.0">Download Toit v0.15.0 <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7l-7 7"/></g><!-- HTML_TAG_END --></svg></a></div></div>
+    <div class="Feature-actions"><a class="Button" target="_blank" href="https://github.com/toitlang/toit/releases/tag/v1.6.0">Download Toit v1.6.0 <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7l-7 7"/></g><!-- HTML_TAG_END --></svg></a></div></div>
   <div class="Feature"><h3 class="Feature-title"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></g><!-- HTML_TAG_END --></svg> Documentation</h3>
     <div class="Feature-body"><p>Learn how to code with Toit and how you can use it in your IoT projects.</p></div>
     <div class="Feature-actions"><a class="Button" target="_blank" href="https://docs.toit.io/language">Visit documentation <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7l-7 7"/></g><!-- HTML_TAG_END --></svg></a></div></div>
@@ -117,7 +117,28 @@
 
 <section><div class="news-and-articles svelte-1qxxnat"><div class="news svelte-1qxxnat"><div class="news-container svelte-1qxxnat"><h3 class="SectionTitle"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><!-- HTML_TAG_START --><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><circle cx="12" cy="14" r="4"/><path d="M12 6h.01"/></g><!-- HTML_TAG_END --></svg> Latest news</h3>
 
-<div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.15.0 release
+<div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v1.6.0 release
+      <span class="Entry-date svelte-fb65in">Feb. 6th, 2022</span></h3>
+
+    <p class="Entry-body">Added support for canceling RPC requests.
+Fixed bug in image writing edge case.</p>
+    <p class="Entry-actions"><a href="https://github.com/toitlang/toit/releases/tag/v1.6.0" target="_blank" class="svelte-fb65in">Get it!</a></p>
+  </div><div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.16.0 release
+      <span class="Entry-date svelte-fb65in">Jan. 31st, 2022</span></h3>
+
+    <p class="Entry-body">Use local network in toit.lsp to fix windows firewall warning.
+Free TLS resources when closing the last TLS session.
+Avoid leaking external memory for TLS sessions.
+Fix 64-bit external string length handling in image code.
+Reuse parsed x509 certificates based on SHA256 hash of input. 
+Allow access to RTC memory.</p>
+    <p class="Entry-actions"><a href="https://github.com/toitlang/toit/releases/tag/v0.16.0" target="_blank" class="svelte-fb65in">Get it!</a></p>
+  </div><div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.15.1 release
+      <span class="Entry-date svelte-fb65in">Jan. 20th, 2022</span></h3>
+
+    <p class="Entry-body">Handle RPC message encoding in C++.</p>
+    <p class="Entry-actions"><a href="https://github.com/toitlang/toit/releases/tag/v0.15.1" target="_blank" class="svelte-fb65in">Get it!</a></p>
+  </div><div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.15.0 release
       <span class="Entry-date svelte-fb65in">Jan. 18th, 2022</span></h3>
 
     <p class="Entry-body">Support flash registry on Linux.
@@ -138,28 +159,6 @@ Add newlines for lines read from error message in LSP.</p>
 
     <p class="Entry-body">Bug fix: Include VERSION and snapshots in SDK.</p>
     <p class="Entry-actions"><a href="https://github.com/toitlang/toit/releases/tag/v0.13.1" target="_blank" class="svelte-fb65in">Get it!</a></p>
-  </div><div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.13.0 release
-      <span class="Entry-date svelte-fb65in">Jan. 4th, 2022</span></h3>
-
-    <p class="Entry-body">Rename executables.
-Remove pubsub and job library.
-Add NTP example.</p>
-    <p class="Entry-actions"><a href="https://github.com/toitlang/toit/releases/tag/v0.13.0" target="_blank" class="svelte-fb65in">Get it!</a></p>
-  </div><div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.12.0 release
-      <span class="Entry-date svelte-fb65in">Dec. 30th, 2021</span></h3>
-
-    <p class="Entry-body">Add real-time clock operations on ESP32.  
-Dynamically check for OTA support.  
-Clean up cross-compile make support.  
-Add lots of tests.</p>
-    <p class="Entry-actions"><a href="https://github.com/toitlang/toit/releases/tag/v0.12.0" target="_blank" class="svelte-fb65in">Get it!</a></p>
-  </div><div class="Entry svelte-fb65in"><h3 class="Entry-title svelte-fb65in">Toit v0.11.1 release
-      <span class="Entry-date svelte-fb65in">Dec. 22nd, 2021</span></h3>
-
-    <p class="Entry-body">Fix LSP server for unsaved files on Windows.
-Add bounds check to generic number parsing.
-Print LSP non-position errors on stderr.</p>
-    <p class="Entry-actions"><a href="https://github.com/toitlang/toit/releases/tag/v0.11.1" target="_blank" class="svelte-fb65in">Get it!</a></p>
   </div></div></div>
     <div class="articles svelte-1qxxnat"><div class="Article svelte-r6zoev"><h3 class="Article-title SectionTitle">Writing a driver in Toit</h3>
 

@@ -6,8 +6,8 @@
   <h1>No ESP32?</h1>
 
   <p>
-    The Toit language can also be used on the desktop. In fact, we use it to develop many
-    of the tools that come with the SDK.
+    The Toit language can also be used on the desktop. In fact, we use it to develop many of the
+    tools that come with the SDK.
   </p>
 </div>
 

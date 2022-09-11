@@ -3,7 +3,7 @@
   import Hero from '$lib/Hero.svelte'
   import Jaguar from '$lib/Jaguar.svelte'
   import LatestNews from '$lib/LatestNews.svelte'
-  import PrimaryActions from '$lib/PrimaryActions.svelte'
+  import NoESP32 from '$lib/NoESP32.svelte'
 </script>
 
 <svelte:head>
@@ -23,11 +23,11 @@
 </section>
 
 <section>
-  <PrimaryActions />
+  <Jaguar />
 </section>
 
 <section>
-  <Jaguar />
+  <NoESP32 />
 </section>
 
 <section>

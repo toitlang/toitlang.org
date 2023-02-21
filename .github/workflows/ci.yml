@@ -27,7 +27,7 @@ jobs:
           runTests: false
 
       - name: ssh debug
-        uses: lhotari/action-uptearm@v1
+        uses: lhotari/action-upterm@v1
 
       - name: Download latest releases
         run: |

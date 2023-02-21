@@ -16,12 +16,12 @@ jobs:
     steps:
       # As usual, we simply checkout the project
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # This action is provided by Cypress. It installs node and the NPM
       # dependencies, and caches them.
       - name: Cypress install
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v5
         with:
           # NOTE: we don't actually run tests here!
           runTests: false
@@ -82,17 +82,17 @@ jobs:
         # Run copies of the current job in parallel.
         # containers: [1, 2]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # Download the build from the previous step.
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: build
           path: build
 
       # Run all cypress tests.
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v5
         with:
           # Simply start a python http server that exposes the build/ dir
           start: python3 -m http.server --directory build 3000
@@ -127,7 +127,7 @@ jobs:
     steps:
       # No need to checkout the project, since all we need is to download the
       # build artifact from the build step.
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: build
           path: build

@@ -50,7 +50,7 @@
 </div>
 
 <div class="download-options">
-  <a href="https://github.com/toitlang/jaguar#how-do-i-use-it" class="Button"
+  <a href="https://docs.toit.io/getstarted/device" class="Button"
     >Install now <LinuxIcon /> <MacOSIcon /> <WindowsIcon /></a
   >
 </div>

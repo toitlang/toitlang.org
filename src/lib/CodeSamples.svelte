@@ -3,6 +3,7 @@
   import blocks from '$lib/toit-examples/blocks.toit'
   import classes from '$lib/toit-examples/classes.toit'
   import functions from '$lib/toit-examples/functions.toit'
+  import helloworld from '$lib/toit-examples/hello-world.toit'
   import loops from '$lib/toit-examples/loops.toit'
   import packages from '$lib/toit-examples/packages.toit'
 
@@ -14,6 +15,15 @@
   }
 
   const slides: Slide[] = [
+    {
+      title: `Hello, world!`,
+      body: `Everyone likes to start with a simple program, so here is the obligatory "Hello, world!" program in Toit.
+      Define your main function by writing its name, followed by a colon.
+      The body of the function is indented by two spaces.
+      The "print" function takes one argument - you don't need parentheses.`,
+      code: helloworld,
+      url: `https://docs.toit.io/language/#hello-world`,
+    },
     {
       title: `Defining functions`,
       body: `What if you want to say "Hello" a lot without getting your fingers all tired? You should define a function.

@@ -186,10 +186,10 @@ CodeMirror.defineMode('toit', function (config) {
     state.subState.pop()
     state.context.push([tokenizeIsAs, -1])
     state.subState.push(null)
-    if (stream.match(/not\b/)) {
+    if (stream.match(/not(?!-\w)\b/)) {
       return 'is_as'
     } else {
-      tokenizeIsAs(stream, state)
+      return tokenizeIsAs(stream, state)
     }
   }
 
@@ -203,12 +203,12 @@ CodeMirror.defineMode('toit', function (config) {
   }
 
   function tryIsAs(stream, state) {
-    if (stream.match(/is\b/)) {
+    if (stream.match(/is(?!-\w)\b/)) {
       state.context.push([tokenizeIs, -1])
       state.subState.push(null)
       return 'is_as'
     }
-    if (stream.match(/as\b/)) {
+    if (stream.match(/as(?!-\w)\b/)) {
       state.context.push([tokenizeIsAs, -1])
       state.subState.push(null)
       return 'is_as'
@@ -444,7 +444,7 @@ CodeMirror.defineMode('toit', function (config) {
   }
 
   function tryPrimitive(stream, state) {
-    if (stream.match(/#primitive\b/)) {
+    if (stream.match(/#primitive(?!-\w)\b/)) {
       return 'primitive'
     }
     return null
@@ -460,14 +460,14 @@ CodeMirror.defineMode('toit', function (config) {
     if (!stream.match(TYPE, false)) {
       throw 'INTERNAL ERROR'
     }
-    if (stream.match(/any\b/) || stream.match(/none\b/)) {
+    if (stream.match(/any(?!-\w)\b/) || stream.match(/none(?!-\w)\b/)) {
       return 'type_special'
     }
     if (
-      stream.match(/int\b\??/) ||
-      stream.match(/float\b\??/) ||
-      stream.match(/bool\b\??/) ||
-      stream.match(/string\b\??/)
+      stream.match(/int(?!-\w)\b\??/) ||
+      stream.match(/float(?!-\w)\b\??/) ||
+      stream.match(/bool(?!-\w)\b\??/) ||
+      stream.match(/string(?!-\w)\b\??/)
     ) {
       return 'type_short'
     }
@@ -506,7 +506,7 @@ CodeMirror.defineMode('toit', function (config) {
   var IMPORT_AFTER_AS = 3
   var IMPORT_ERROR = 4
   function tryImport(stream, state) {
-    if (stream.match(/import\b/)) {
+    if (stream.match(/import(?!-\w)\b/)) {
       state.context.push([tokenizeImport, 2])
       state.subState.push(IMPORT_AFTER_IMPORT)
       return 'keyword'
@@ -529,11 +529,11 @@ CodeMirror.defineMode('toit', function (config) {
         setSubState(state, IMPORT_AFTER_PATH)
         return 'import_path'
       case IMPORT_AFTER_PATH:
-        if (stream.match(/as\b/)) {
+        if (stream.match(/as(?!-\w)\b/)) {
           setSubState(state, IMPORT_AFTER_AS)
           return 'keyword'
         }
-        if (stream.match(/show\b/)) {
+        if (stream.match(/show(?!-\w)\b/)) {
           setSubState(state, IMPORT_AFTER_SHOW)
           return 'keyword'
         }
@@ -560,7 +560,7 @@ CodeMirror.defineMode('toit', function (config) {
   var EXPORT_AFTER_EXPORT = 0
   var EXPORT_ERROR = 1
   function tryExport(stream, state) {
-    if (stream.match(/export\b/)) {
+    if (stream.match(/export(?!-\w)\b/)) {
       state.context.push([tokenizeExport, 2])
       state.subState.push(EXPORT_AFTER_EXPORT)
       return 'keyword'
@@ -593,11 +593,18 @@ CodeMirror.defineMode('toit', function (config) {
   var CLASS_SIGNATURE_AFTER_NAME = 1
   var CLASS_SIGNATURE_AFTER_EXTENDS = 2
   var CLASS_SIGNATURE_AFTER_EXTENDS_TYPE = 3
-  var CLASS_SIGNATURE_AFTER_IMPLEMENTS = 4
-  var CLASS_SIGNATURE_AFTER_FIRST_IMPLEMENTS_NAME = 5
-  var CLASS_BODY = 6
+  var CLASS_SIGNATURE_AFTER_WITH = 4
+  var CLASS_SIGNATURE_AFTER_FIRST_WITH_NAME = 5
+  var CLASS_SIGNATURE_AFTER_IMPLEMENTS = 6
+  var CLASS_SIGNATURE_AFTER_FIRST_IMPLEMENTS_NAME = 7
+  var CLASS_BODY = 8
   function tryClass(stream, state) {
-    if (stream.match(/(abstract[ ]+)?class\b/) || stream.match(/interface\b/)) {
+    if (
+      stream.match(/(abstract[ ]+)?class(?!-\w)\b/) ||
+      stream.match(/interface(?!-\w)\b/) ||
+      stream.match(/mixin(?!-\w)\b/) ||
+      stream.match(/monitor(?!-\w)\b/)
+    ) {
       state.context.push([tokenizeClass, 2])
       state.subState.push(CLASS_SIGNATURE_AFTER_CLASS)
       return 'keyword'
@@ -630,14 +637,18 @@ CodeMirror.defineMode('toit', function (config) {
         return 'class_name'
 
       case CLASS_SIGNATURE_AFTER_NAME:
-        if (stream.match(/extends\b/)) {
+        if (stream.match(/extends(?!-\w)\b/)) {
           setSubState(state, CLASS_SIGNATURE_AFTER_EXTENDS)
           return 'keyword'
         }
       // Fall through.
 
       case CLASS_SIGNATURE_AFTER_EXTENDS_TYPE:
-        if (stream.match(/implements\b/)) {
+        if (stream.match(/with(?!-\w)\b/)) {
+          setSubState(state, CLASS_SIGNATURE_AFTER_WITH)
+          return 'keyword'
+        }
+        if (stream.match(/implements(?!-\w)\b/)) {
           setSubState(state, CLASS_SIGNATURE_AFTER_IMPLEMENTS)
           return 'keyword'
         }
@@ -652,12 +663,18 @@ CodeMirror.defineMode('toit', function (config) {
         setSubState(state, CLASS_SIGNATURE_AFTER_EXTENDS_TYPE)
         return tokenizeType(stream, state, false)
 
+      case CLASS_SIGNATURE_AFTER_WITH:
       case CLASS_SIGNATURE_AFTER_IMPLEMENTS:
         // The first *requires* an type.
         if (!stream.match(TYPE, false)) return signatureError()
-        setSubState(state, CLASS_SIGNATURE_AFTER_FIRST_IMPLEMENTS_NAME)
+        const nextSubState =
+          subState(state) == CLASS_SIGNATURE_AFTER_WITH
+            ? CLASS_SIGNATURE_AFTER_FIRST_WITH_NAME
+            : CLASS_SIGNATURE_AFTER_FIRST_IMPLEMENTS_NAME
+        setSubState(state, nextSubState)
         return tokenizeType(stream, state, false)
 
+      case CLASS_SIGNATURE_AFTER_FIRST_WITH_NAME:
       case CLASS_SIGNATURE_AFTER_FIRST_IMPLEMENTS_NAME:
         if (stream.match(TYPE, false)) {
           return tokenizeType(stream, state, false)
@@ -665,6 +682,12 @@ CodeMirror.defineMode('toit', function (config) {
         if (stream.match(':')) {
           setSubState(state, CLASS_BODY)
           return 'class_body_colon'
+        }
+        if (subState(state) == CLASS_SIGNATURE_AFTER_FIRST_WITH_NAME) {
+          if (stream.match(/implements(?!-\w)\b/)) {
+            setSubState(state, CLASS_SIGNATURE_AFTER_IMPLEMENTS)
+            return 'keyword'
+          }
         }
         return signatureError()
 
@@ -688,15 +711,15 @@ CodeMirror.defineMode('toit', function (config) {
     if (comment_result) return comment_result
 
     if (subState(state) == MEMBER_DECLARATION_START) {
-      if (stream.match(/abstract\b/) || stream.match(/static\b/)) {
+      if (stream.match(/abstract(?!-\w)\b/) || stream.match(/static(?!-\w)\b/)) {
         setSubState(state, MEMBER_DECLARATION_AFTER_STATIC_ABSTRACT)
         return 'keyword'
       }
-      if (stream.match(/operator\b/)) {
+      if (stream.match(/operator(?!-\w)\b/)) {
         setSubState(state, MEMBER_DECLARATION_AFTER_OPERATOR)
         return 'keyword'
       }
-      if (stream.match(/constructor\b/)) {
+      if (stream.match(/constructor(?!-\w)\b/)) {
         if (stream.match(/\.[a-zA-Z_]\w*/, false)) {
           setSubState(state, MEMBER_DECLARATION_AFTER_NAMED_CONSTRUCTOR)
         } else {

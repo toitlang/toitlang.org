@@ -21,7 +21,7 @@ jobs:
       # This action is provided by Cypress. It installs node and the NPM
       # dependencies, and caches them.
       - name: Cypress install
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         with:
           # NOTE: we don't actually run tests here!
           runTests: false
@@ -92,7 +92,7 @@ jobs:
 
       # Run all cypress tests.
       - name: Cypress run
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         with:
           # Simply start a python http server that exposes the build/ dir
           start: python3 -m http.server --directory build 3000

@@ -1,5 +1,4 @@
 <script>
-  import CookieConsent from '$lib/CookieConsent.svelte'
   import Footer from '$lib/Footer.svelte'
   import Header from '$lib/Header.svelte'
   import '../style/app.css'
@@ -14,8 +13,6 @@
 <footer>
   <Footer />
 </footer>
-
-<CookieConsent />
 
 <style lang="postcss">
   main {

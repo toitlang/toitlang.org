@@ -18,6 +18,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
       # This action is provided by Cypress. It installs node and the NPM
       # dependencies, and caches them.
       - name: Cypress install

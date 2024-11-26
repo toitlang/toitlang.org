@@ -4,6 +4,21 @@ This is the official site for the open source programming language **Toit**.
 
 It is built with [SvelteKit](https://kit.svelte.dev).
 
+## Node version
+
+This project doesn't compile anymore with recent node versions. Use,
+for example, `nvm` to install an older version of node. The repository
+contains a `.nvmrc` file that specifies the node version that works.
+
+If you have nvm installed, but not automatically activated in your
+.bashrc, you will need to do
+
+```bash
+source /usr/share/nvm/init-nvm.sh
+```
+
+Then run `nvm install` to install the correct version of node.
+
 ## Developing
 
 ```bash

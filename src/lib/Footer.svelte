@@ -1,8 +1,8 @@
 <script>
-  import ToitLogo from '/static/images/toit-logo.svg'
-  import TwitterIcon from '~icons/feather/twitter'
   import DiscordIcon from '~icons/la/discord'
   import RedditIcon from '~icons/ps/reddit'
+  import BSkyIcon from '/static/images/bsky-black.svg'
+  import ToitLogo from '/static/images/toit-logo.svg'
 </script>
 
 <nav>
@@ -11,9 +11,11 @@
   </div>
 
   <div class="social">
-    <a href="https://twitter.com/toitlang">
-      <span class="u-linkTitle">Twitter</span>
-      <TwitterIcon />
+    <a href="https://bsky.app/profile/toitlang.org">
+      <span class="u-linkTitle">BlueSky</span>
+      <span class="bsky-logo">
+      <BSkyIcon />
+      </span>
     </a>
     <a href="https://www.reddit.com/r/toitlang/">
       <span class="u-linkTitle">Reddit</span>
@@ -57,6 +59,13 @@
     & :global(svg) {
       width: 6rem;
       height: auto;
+    }
+  }
+
+  .bsky-logo {
+    & :global(svg) {
+      width: 1.2em;
+      height: 1.2em;
     }
   }
 </style>

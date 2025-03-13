@@ -14,7 +14,7 @@
     <a href="https://bsky.app/profile/toitlang.org">
       <span class="u-linkTitle">BlueSky</span>
       <span class="bsky-logo">
-      <BSkyIcon />
+        <BSkyIcon />
       </span>
     </a>
     <a href="https://www.reddit.com/r/toitlang/">

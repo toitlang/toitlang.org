@@ -16,7 +16,7 @@ jobs:
     steps:
       # As usual, we simply checkout the project
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - uses: actions/setup-node@v4
         with:
@@ -86,7 +86,7 @@ jobs:
         # Run copies of the current job in parallel.
         # containers: [1, 2]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # Download the build from the previous step.
       - uses: actions/download-artifact@v5

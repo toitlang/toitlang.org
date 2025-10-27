@@ -48,7 +48,7 @@ jobs:
       # And lastly, we upload the generated build/ folder as artifact so we can
       # use it in later steps.
       - name: Upload build and .svelte-kit folder
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: build
           if-no-files-found: error

@@ -1,4 +1,4 @@
 import morse
 
 main:
-  morse.encode_string "hello world"
+  morse.encode-string "hello world"

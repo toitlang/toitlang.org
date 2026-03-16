@@ -2,14 +2,22 @@
   import CodeSamples from './CodeSamples.svelte'
 </script>
 
-<h1>Toit is a modern high-level language designed specifically for microcontrollers</h1>
+<h1>Toit is a modern high-level language designed and optimised for
+  microcontrollers, and ready for use everywhere.</h1>
 
 <p>
-  Toit is optimised for <strong>live reloading</strong> on your microcontroller. Your code runs
-  incrementally as you write it and you get <strong>instant feedback</strong>. Push changes over
-  your local
-  <strong>WiFi</strong> in two seconds and reserve your USB cable for charging your phone. You iterate
-  quickly, learn fast, and build better things.
+  Toit is an open source, object-oriented programming language originally created
+  for the modern 'Internet of Things'.  The Toit language is:
+  - Modern, simple, and approachable
+  - High-level and object-oriented
+  - Declarative and statically analyzable
+  - Safe and garbage collected
+
+  With Toit, your code runs incrementally as you write it, with <strong>instant
+  feedback</strong>.  You iterate quickly, learn fast, and build better things.
+  When used on your ESP32 microcontroller, Toit is optimised for efficient
+  resource usage and <strong>live reloading</strong>.  Push your changes over
+  <strong>WiFi</strong> in seconds and reserve your USB cable for charging your phone.
 </p>
 
 <CodeSamples />

@@ -1,6 +1,7 @@
 <script>
   import { page } from '$app/stores'
   import ToitLogo from '/static/images/toit-logo.svg'
+  import ExternalLinkIcon from '~icons/feather/external-link'
 </script>
 
 <a class="skip-link" href="#main">Skip to content</a>
@@ -12,8 +13,16 @@
     >
     <a href="/embedded/" aria-current={$page.path === '/embedded/' ? 'page' : undefined}>Embedded</a
     >
-    <a href="https://docs.toit.io/">Docs <span aria-hidden="true">↗</span></a>
+    <a href="https://docs.toit.io/"
+      >Docs <ExternalLinkIcon class="external-link-icon" aria-hidden="true" focusable="false" /></a
+    >
     <a href="/project/" aria-current={$page.path === '/project/' ? 'page' : undefined}>Project</a>
-    <a href="https://github.com/toitlang/toit">GitHub <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/toitlang/toit"
+      >GitHub <ExternalLinkIcon
+        class="external-link-icon"
+        aria-hidden="true"
+        focusable="false"
+      /></a
+    >
   </nav>
 </header>

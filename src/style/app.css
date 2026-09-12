@@ -75,6 +75,11 @@ a {
 a:hover {
   text-decoration-thickness: 2px;
 }
+.external-link-icon {
+  width: 0.9em;
+  height: 0.9em;
+  vertical-align: -0.1em;
+}
 a:focus-visible,
 button:focus-visible {
   outline: 3px solid var(--accent);

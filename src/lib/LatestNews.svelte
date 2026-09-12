@@ -1,44 +1,24 @@
-<script lang="ts">
-  import { releases } from '$lib/releases'
-  import { format } from 'date-fns'
-  import NewsIcon from '~icons/feather/speaker'
+<script>
+  import { releases, formatDate } from '$lib/releases'
+  import { releaseExcerpt } from '$lib/markdown'
+  const latest = releases[0]
 </script>
 
-<h3 class="SectionTitle"><NewsIcon /> Latest news</h3>
-
-{#each releases.slice(0, 6) as release (release.name)}
-  <div class="Entry">
-    <h3 class="Entry-title">
-      Toit {release.tag} release
-      <span class="Entry-date">{format(release.createdAt, 'MMM. do, yyyy')}</span>
-    </h3>
-
-    <p class="Entry-body">
-      {release.body}
+<div class="latest-release">
+  <p class="eyebrow">Latest language release</p>
+  {#if latest}
+    <h2><a href={`/releases/#${latest.tag}`}>Toit {latest.tag}</a></h2>
+    <p class="muted">
+      <time datetime={latest.createdAt.toISOString()}>{formatDate(latest.createdAt)}</time
+      >{latest.prerelease ? ' · Prerelease' : ''}
     </p>
-    <p class="Entry-actions">
-      <a href={release.url} target="_blank">Get it!</a>
+    <div class="markdown excerpt">{@html releaseExcerpt(latest.body)}</div>
+    <a href={`/releases/#${latest.tag}`}>Read the release notes →</a>
+  {:else}
+    <p>
+      Follow development and find downloads on <a href="https://github.com/toitlang/toit/releases"
+        >GitHub Releases</a
+      >.
     </p>
-  </div>
-{/each}
-
-<style lang="postcss">
-  .Entry {
-    margin-top: 1.5rem;
-  }
-  .Entry-title {
-    display: flex;
-    font-weight: bold;
-    justify-content: space-between;
-  }
-  .Entry-date {
-    font-weight: normal;
-    opacity: 0.5;
-  }
-
-  a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
-  }
-</style>
+  {/if}
+</div>

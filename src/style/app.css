@@ -1,17 +1,456 @@
 @import '@fontsource/roboto/400.css';
 @import '@fontsource/roboto/700.css';
 @import '@fontsource/roboto-mono/400.css';
-@import '@fontsource/roboto-mono/700.css';
 
-@import './config.css';
+@font-face {
+  font-family: ClashDisplay;
+  src: url('/fonts/ClashDisplay-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
-@import './reset.css';
-@import './fonts';
+:root {
+  font-family: Roboto, Arial, sans-serif;
+  color: #000;
+  background: #fff;
+  font-synthesis: none;
+  /* Shared with web-toit.io/src/theme.ts. */
+  --golden: #fac864;
+  --lavender: #c1c9ff;
+  --teal: #bddcd8;
+  --accent: #000;
+  --muted: #4b4b4b;
+  --line: #d7d7d7;
+}
 
-@import './code.css';
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.65;
+}
+main,
+.site-header,
+.site-footer {
+  width: min(1120px, calc(100% - 64px));
+  margin-inline: auto;
+}
+main {
+  min-height: 60vh;
+}
+section {
+  padding-block: 56px;
+}
+h1,
+h2,
+h3 {
+  line-height: 1.18;
+  font-family: ClashDisplay, Roboto, sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+h1 {
+  font-size: clamp(2.5rem, 5.8vw, 4.6rem);
+  margin: 16px 0 24px;
+  max-width: 920px;
+}
+h2 {
+  font-size: clamp(1.5rem, 2.7vw, 2rem);
+  margin: 0 0 20px;
+}
+h3 {
+  font-size: 1.3rem;
+}
+p {
+  margin: 0 0 20px;
+}
+a {
+  color: var(--accent);
+  text-underline-offset: 4px;
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+}
+figure {
+  margin: 0;
+  min-width: 0;
+}
+pre {
+  margin: 0;
+  white-space: pre;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+code,
+samp {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.88em;
+}
+pre code,
+pre samp {
+  font-size: inherit;
+}
+p code {
+  background: #f1f1f1;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+small {
+  font-size: 0.85rem;
+}
+[id] {
+  scroll-margin-top: 24px;
+}
+.muted {
+  color: var(--muted);
+}
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.lead {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  max-width: 760px;
+  line-height: 1.6;
+}
+.intro {
+  padding-block: 70px 52px;
+}
+.site-header,
+.intro {
+  background: var(--golden);
+  box-shadow: 0 0 0 100vmax var(--golden);
+  clip-path: inset(0 -100vmax);
+}
+.intro-illustrated {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
+}
+.intro-illustrated h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+.intro-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.section-rule {
+  border-top: 1px solid var(--line);
+}
+.prose {
+  max-width: 760px;
+}
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.split > *,
+.three-columns > * {
+  min-width: 0;
+}
+.three-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.three-columns h2 {
+  font-size: 1.4rem;
+}
+.paths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding-top: 40px;
+}
+.path {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+  padding: 32px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: var(--lavender);
+}
+.path:nth-child(2) {
+  background: var(--teal);
+}
+.path:hover {
+  box-shadow: 3px 3px 0 #000;
+}
+.path h2 {
+  margin-bottom: 12px;
+}
+.path .text-link {
+  margin-top: auto;
+  color: var(--accent);
+  font-weight: 700;
+}
+.button {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 11px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.button:hover {
+  background: #333;
+}
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  min-height: 100px;
+  border-bottom: 1px solid #000;
+}
+.logo {
+  color: #000;
+  display: block;
+  line-height: 0;
+}
+.logo svg {
+  width: 85px;
+  height: auto;
+}
+.site-header nav {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+.site-header nav a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+.site-header nav a:hover,
+.site-header nav a[aria-current] {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.site-footer {
+  margin-top: 32px;
+  border-top: 1px solid var(--line);
+  padding-block: 32px 48px;
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  font-size: 0.88rem;
+}
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  gap: 12px 24px;
+}
+.skip-link {
+  position: absolute;
+  left: 20px;
+  top: -100px;
+  padding: 12px;
+  background: white;
+  z-index: 10;
+}
+.skip-link:focus {
+  top: 10px;
+}
+.example {
+  background: #191919;
+  color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.example figcaption {
+  padding: 12px 24px;
+  border-bottom: 1px solid #4b4b4b;
+  font: 0.8rem 'Roboto Mono', monospace;
+  color: var(--golden);
+}
+.example > pre {
+  padding: 24px;
+}
+.terminal {
+  padding: 18px 24px;
+  background: #000;
+  border-top: 1px solid #4b4b4b;
+}
+.terminal .muted {
+  color: var(--golden);
+}
+.terminal .output {
+  color: var(--teal);
+  margin-top: 8px;
+}
+.cm-keyword,
+.cm-builtin {
+  color: var(--lavender);
+}
+.cm-string {
+  color: var(--golden);
+}
+.cm-number,
+.cm-atom {
+  color: #ffb37c;
+}
+.cm-comment {
+  color: #bdbdbd;
+}
+.command {
+  background: #f5f5f5;
+  border: 1px solid var(--line);
+  padding: 18px;
+  margin: 24px 0;
+  border-radius: 4px;
+}
+.link-list {
+  display: grid;
+  gap: 16px;
+}
+.container-diagram {
+  margin-block: 32px;
+}
+.container-diagram img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.container-diagram figcaption {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 12px;
+  max-width: 760px;
+}
+.package-feature {
+  padding: 32px;
+  margin-bottom: 56px;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+.cli-feature {
+  background: var(--lavender);
+}
+.sensors-feature {
+  background: var(--teal);
+}
+.release {
+  padding-block: 40px;
+  max-width: 860px;
+}
+.markdown {
+  overflow-wrap: anywhere;
+}
+.markdown h1,
+.markdown h2 {
+  font-size: 1.5rem;
+  margin-block: 28px 16px;
+}
+.markdown h3,
+.markdown h4 {
+  font-size: 1.1rem;
+  margin-block: 24px 12px;
+}
+.markdown ul,
+.markdown ol {
+  padding-left: 24px;
+}
+.markdown li {
+  margin-block: 6px;
+}
+.markdown li p {
+  margin-bottom: 6px;
+}
+.markdown pre {
+  padding: 16px;
+  background: #f1f1f1;
+  margin-block: 20px;
+}
+.markdown blockquote {
+  border-left: 3px solid var(--line);
+  margin-left: 0;
+  padding-left: 20px;
+}
+.markdown table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin-block: 20px;
+}
+.markdown th,
+.markdown td {
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  text-align: left;
+}
+.excerpt {
+  font-size: 0.95rem;
+  max-height: 260px;
+  overflow: auto;
+  margin-bottom: 20px;
+}
 
-@import './app/_general';
-@import './app/Button';
-@import './app/Feature';
-@import './app/SectionTitle';
-@import './app/u-linkTitle';
+@media (max-width: 760px) {
+  main,
+  .site-header,
+  .site-footer {
+    width: calc(100% - 40px);
+  }
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-block: 24px;
+    gap: 20px;
+  }
+  .site-header nav {
+    gap: 12px 20px;
+  }
+  .intro {
+    padding-block: 44px 36px;
+  }
+  .intro-illustrated {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .intro-art {
+    max-width: 240px;
+    margin-inline: auto;
+  }
+  section {
+    padding-block: 36px;
+  }
+  .split,
+  .three-columns,
+  .paths {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .path {
+    padding: 26px;
+  }
+  .package-feature {
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .site-footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

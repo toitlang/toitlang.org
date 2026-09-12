@@ -1,148 +1,139 @@
-name: CI
+name: Website
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+  release:
+    types: [published]
   repository_dispatch:
-    # Gets triggered by toitlang/toit whenever a release is created or edited.
     types: [new-release]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Serialize the entire public build/deploy sequence, including source selection.
+# A language release must not race a website release or cancel its deployment.
+concurrency:
+  group: website-${{ (github.event_name == 'release' || github.event_name == 'repository_dispatch') && 'public' || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
+
+env:
+  # Preview-only until the public migration is explicitly enabled.
+  PUBLIC_ENABLED: ${{ vars.CLOUDFLARE_PUBLIC_ENABLED == 'true' }}
+  PUBLIC_PROJECT: ${{ vars.CLOUDFLARE_PUBLIC_PROJECT || 'toit' }}
+  PREVIEW_PROJECT: ${{ vars.CLOUDFLARE_PREVIEW_PROJECT || 'toit-dev' }}
 
 jobs:
   build:
-    # We're running on ubuntu-latest, nothing special
     runs-on: ubuntu-latest
+    outputs:
+      target: ${{ steps.source.outputs.target }}
+      project: ${{ steps.source.outputs.project }}
+      sha: ${{ steps.commit.outputs.sha }}
     steps:
-      # As usual, we simply checkout the project
-      - name: Checkout
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
+        with:
+          path: automation
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 22
 
-      # This action is provided by Cypress. It installs node and the NPM
-      # dependencies, and caches them.
-      - name: Cypress install
-        uses: cypress-io/github-action@v7
+      - name: Select website source and deployment target
+        id: source
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: node automation/tool/select-deployment.mjs
+
+      - uses: actions/checkout@v6
         with:
-          # NOTE: we don't actually run tests here!
-          runTests: false
+          ref: ${{ steps.source.outputs.ref }}
+          path: site
 
-      - name: Download latest releases
+      - name: Record the actual website source commit
+        id: commit
+        working-directory: site
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      # Keep the existing SvelteKit build on its supported Node version.
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: site/.nvmrc
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install
+        working-directory: site
+        env:
+          CYPRESS_INSTALL_BINARY: '0'
+        run: npm ci
+
+      - name: Check source and release rendering
+        working-directory: site
         run: |
-          curl https://api.github.com/repos/toitlang/toit/releases > src/lib/releases.json
-          npm exec -- prettier -w src/lib/releases.json
+          npm run check
+          npm test
+          npx eslint src tool tests --ext .js,.ts,.svelte,.mjs
+          npx prettier --check 'src/**/*.{svelte,ts,js,css}' 'tool/*.mjs' 'tests/*.mjs'
 
-      # Now we run our lints. This is the place where you could run other tests
-      # unrelated to cypress (e.g.: unit tests).
-      - name: Run lints
-        run: npm run lint
+      - name: Fetch current language release notes
+        working-directory: site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run releases:fetch
 
-      # Now we're building the svelte site.
-      # This step generates a build/ directory.
-      - name: Build site
+      - name: Build static website
+        working-directory: site
         run: npm run build
 
-      # And lastly, we upload the generated build/ folder as artifact so we can
-      # use it in later steps.
-      - name: Upload build and .svelte-kit folder
-        uses: actions/upload-artifact@v7
-        with:
-          name: build
-          if-no-files-found: error
-          path: build
+      - name: Verify static pages and schema
+        working-directory: site
+        run: node tool/check-build.mjs
 
-  test:
-    # We depend on the build step for this.
-    needs: build
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    # We need to use the cypress container here, that includes chrome and
-    # firefox.
-    container:
-      image: cypress/browsers:node14.17.0-chrome91-ff89
-      # This is necessary so Cypress can find Firefox.
-      options: --user 1001
-    # This whole block is really only for the Cypress dashboard. It enables
-    # parallel tests which only make sense if the dashboard is coordinating
-    # them.
-    #
-    # If you don't want to use the Cypress Dashboard, just delete the whole
-    # strategy section except the browser matrix.
-    #
-    # Read more about the parallelization here:
-    # https://docs.cypress.io/guides/guides/parallelization
-    strategy:
-      # When one test fails, DO NOT cancel the other containers, because this
-      # will kill Cypress processes leaving the Dashboard hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      # fail-fast: false
-      matrix:
-        # Setting the different browsers we want to test. This is later used in
-        # the cypress action.
-        browser: [chrome, firefox]
-        # Run copies of the current job in parallel.
-        # containers: [1, 2]
-    steps:
-      - uses: actions/checkout@v6
+      - name: Install test browser
+        working-directory: site
+        run: npx cypress install
 
-      # Download the build from the previous step.
-      - uses: actions/download-artifact@v8
-        with:
-          name: build
-          path: build
-
-      # Run all cypress tests.
-      - name: Cypress run
+      - name: Check navigation and mobile layout in the browser
         uses: cypress-io/github-action@v7
         with:
-          # Simply start a python http server that exposes the build/ dir
-          start: python3 -m http.server --directory build 3000
-          # Only start tests when the server is up and running.
-          wait-on: http://localhost:3000/
-          # A simple python http server should really never take longer
-          # than 10 seconds to start.
-          wait-on-timeout: 10
-          browser: ${{ matrix.browser }}
-          # All these options are for the Cypress Dashboard.
-          # Remove them if you don't want to use it.
-          # record: true
-          # parallel: true
-          # group: 'UI - ${{ matrix.browser }}'
-        # Again, these environment variables are only necessary for the
-        # Cypress Dashboard.
-        env:
-          # CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
-          # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          # Recommended: pass the GitHub token lets this action correctly
-          # determine the unique run id necessary to re-run the checks
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          working-directory: site
+          install: false
+          start: npm run preview -- --host 127.0.0.1 --port 3000
+          wait-on: http://localhost:3000
+          browser: chrome
+
+      - name: Prevent preview indexing
+        if: steps.source.outputs.target == 'preview'
+        working-directory: site
+        run: node tool/prepare-preview.mjs
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: website
+          path: site/build
+          if-no-files-found: error
 
   deploy:
-    # Only run if merged to main.
-    if: github.ref == 'refs/heads/main'
-    # Only deploy if all tests passed.
-    needs: [build, test]
-
+    needs: build
+    if: needs.build.outputs.target != 'none'
     runs-on: ubuntu-latest
-
+    environment:
+      name: ${{ needs.build.outputs.target == 'public' && 'production' || 'preview' }}
+      url: ${{ needs.build.outputs.target == 'preview' && 'https://www-dev.toitlang.org' || '' }}
     steps:
-      # No need to checkout the project, since all we need is to download the
-      # build artifact from the build step.
       - uses: actions/download-artifact@v8
         with:
-          name: build
+          name: website
           path: build
 
-      # This seems to be the simplest way to publish to a separate branch.
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./build
-          # Optional. This will create a CNAME file so GitHub Pages serves it
-          # under this domain.
-          cname: toitlang.org
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy build --project-name=${{ needs.build.outputs.project }} --branch=${{ needs.build.outputs.target == 'public' && 'production' || 'main' }} --commit-hash=${{ needs.build.outputs.sha }}

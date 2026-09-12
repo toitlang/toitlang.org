@@ -29,6 +29,9 @@ const config = {
   }),
 
   kit: {
+    // The landing pages are fully rendered HTML and need no client runtime.
+    hydrate: false,
+    router: false,
     adapter: adapter({
       // default options are shown
       pages: 'build',

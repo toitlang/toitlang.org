@@ -1,85 +1,74 @@
-# [Toitlang.org](https://toitlang.org)
+# Toit website
 
-This is the official site for the open source programming language **Toit**.
+The consolidated Toit project site: scripting, embedded development, project
+information, and automatically refreshed language release notes. Built with
+SvelteKit and exported as static HTML. The main pages do not require JavaScript.
 
-It is built with [SvelteKit](https://kit.svelte.dev).
+## Develop
 
-## Node version
+Use the Node version in `.nvmrc`. This repository still uses an older SvelteKit
+toolchain that does not build with recent Node versions. Migrating that toolchain
+is separate from the site consolidation; a scoped source-map override keeps
+Svelte's diagnostics working with the supported build environment.
 
-This project doesn't compile anymore with recent node versions. Use,
-for example, `nvm` to install an older version of node. The repository
-contains a `.nvmrc` file that specifies the node version that works.
-
-If you have nvm installed, but not automatically activated in your
-.bashrc, you will need to do
-
-```bash
-source /usr/share/nvm/init-nvm.sh
-```
-
-Then run `nvm install` to install the correct version of node.
-
-## Developing
-
-```bash
-npm install
+```sh
+nvm install
+nvm use
+npm ci
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-### CSS
+## Check and preview
 
-This project is using only valid CSS but with two preprocessors (via postcss)
-that allow to use future CSS spec:
-
-- [`postcss-nesting`](https://www.npmjs.com/package/postcss-nesting) that allows
-  to use the new [css nesting](https://drafts.csswg.org/css-nesting-1/) spec
-  (beware that this behaves differently to the way SASS nesting works)
-- [`postcssLabFunction`](https://www.npmjs.com/package/postcss-lab-function)
-  that allows to use the new `lab` and `lch` [CSS color
-  spec](https://drafts.csswg.org/css-color/#specifying-lab-lch)
-
-In addition to these preprocessors, we added the `linearClamp` function which
-is defined in `./tool/postcss-linear-clamp.cjs`. See the docs there on how to
-use it.
-
-Where it makes sense, the [SUIT](https://suitcss.github.io) naming convention is
-used. If it's a simple component with a few elements then they can be styled
-directly. But if it's a reusable component (like `.Button`) then a SUIT
-component should be created.
-
-### Icons
-
-All icons are imported via
-[unplugin-icons](https://github.com/antfu/unplugin-icons). If possible, the
-[feather icon pack](https://icones.js.org/collection/feather) should be used
-(careful: there are two feather packs).
-
-## Building
-
-This page is built with the static [svelte kit
-adapter](https://www.npmjs.com/package/@sveltejs/adapter-static), so all pages
-are prebuilt as static html pages and then served by GitHub Pages.
-
-Run this command to build the site:
-
-```bash
+```sh
+npm run check
+npm test
 npm run build
+node tool/check-build.mjs
+npm run preview -- --host 127.0.0.1 --port 3000
 ```
 
-> You can preview the built app with `npm run preview`.
+With Chrome installed and the preview server running,
+`npx cypress run --browser chrome --headless` checks navigation, release notes,
+mobile layout, and the preserved authentication callback. Add `--env screenshots=true`
+to capture desktop/mobile screenshots in `cypress/screenshots/`.
 
-## Testing
+Restart the preview server after rebuilding; this version caches static-file
+metadata at startup. Use `npm run dev` while editing for automatic updates.
 
-Tests are written with cypress.
+The Markdown and deployment-selection tests use Node's built-in test runner.
+The build check verifies prerendered pages, internal links, canonical URLs, and
+schema preservation. To check source formatting and lint:
 
-```bash
-npx cypress run # Simply runs the test
-npx cypress open # Opens the cypress test runner
+```sh
+npx prettier --check 'src/**/*.{svelte,ts,js,css}' 'tool/*.mjs' 'tests/*.mjs'
+npx eslint src tool tests --ext .js,.ts,.svelte,.mjs
 ```
+
+## Content
+
+- Pages live in `src/routes/`; shared components in `src/lib/`.
+- `src/lib/toit-examples/` contains the actual Toit programs shown on the pages.
+- `src/style/app.css` defines the shared layout and visual style.
+- `static/schemas/` preserves published JSON-schema URLs independently of the UI.
+- `npm run releases:fetch` refreshes the checked-in local release snapshot. Set
+  `GITHUB_TOKEN` if the unauthenticated GitHub API is rate-limited. CI always fetches
+  current data before building, using its built-in token.
+
+## Publish
+
+Pushing to `main` updates the Cloudflare preview at `www-dev.toitlang.org`
+(after the one-time custom-domain setup). Public deployment is disabled by default;
+the existing `toitlang.org` hosting and DNS stay in place.
+
+After explicitly enabling `CLOUDFLARE_PUBLIC_ENABLED=true`, publishing a website
+release updates the public site. A Toit `new-release` dispatch automatically refreshes
+the **public** release notes using the publicly deployed website source, even
+when `main` contains unfinished changes.
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for project setup, credentials, migration,
+redirects, and the initial public deployment required before release-note refreshes.
 
 ## License
 
-See [LICENSE](./LICENSE) file.
+See [LICENSE](LICENSE).

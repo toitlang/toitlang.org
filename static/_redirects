@@ -1,0 +1,8 @@
+# Retain meaningful destinations for links into the former commercial site.
+/product/device-software /embedded/ 301
+/product/device-software/ /embedded/ 301
+/company/about /project/ 301
+/company/about/ /project/ 301
+/pricing /project/ 301
+/pricing/ /project/ 301
+# Keep schema requests as files, and unknown paths as real 404 responses.

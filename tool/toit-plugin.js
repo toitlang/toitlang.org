@@ -14,7 +14,7 @@ export const toitPlugin = () => {
       if (fileRegex.test(id)) {
         const highlighted = highlight(src)
         return {
-          code: `export default \`${highlighted.replaceAll('`', '\\`')}\`;`,
+          code: `export default ${JSON.stringify(highlighted)};`,
           map: null, // provide source map if available
         }
       }
@@ -25,7 +25,8 @@ export const toitPlugin = () => {
 function highlight(code) {
   let highlighted = ''
   CodeMirror.runMode(code, 'text/x-toit', (token, style) => {
-    highlighted += `<span class="${`cm-${style}` || ''}">${token}</span>`
+    const escaped = token.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+    highlighted += style ? `<span class="cm-${style}">${escaped}</span>` : escaped
   })
   return highlighted
 }

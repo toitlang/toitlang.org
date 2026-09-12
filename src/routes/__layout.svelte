@@ -5,22 +5,5 @@
 </script>
 
 <Header />
-
-<main>
-  <slot />
-</main>
-
-<footer>
-  <Footer />
-</footer>
-
-<style lang="postcss">
-  main {
-    background: url('/images/illustrations/symbols.svg') no-repeat -3rem bottom;
-  }
-  main > :global(section),
-  footer {
-    position: relative;
-    padding: var(--content-vertical-padding) var(--calculated-content-padding);
-  }
-</style>
+<main id="main" tabindex="-1"><slot /></main>
+<Footer />

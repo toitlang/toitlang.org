@@ -1,0 +1,4 @@
+/schemas/*
+  Access-Control-Allow-Origin: *
+  Content-Type: application/schema+json
+  X-Content-Type-Options: nosniff

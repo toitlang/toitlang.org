@@ -34,11 +34,11 @@ jobs:
       project: ${{ steps.source.outputs.project }}
       sha: ${{ steps.commit.outputs.sha }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           path: automation
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
@@ -49,7 +49,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: node automation/tool/select-deployment.mjs
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           ref: ${{ steps.source.outputs.ref }}
           path: site
@@ -60,7 +60,7 @@ jobs:
         run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       # Keep the existing SvelteKit build on its supported Node version.
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version-file: site/.nvmrc
           cache: npm

@@ -54,7 +54,6 @@
   </p>
   <p>
     Read <a href="/releases/">release notes</a> or explore the
-    <a href="https://blog.toit.io/">blog archive</a> for more about the work behind Toit. Older articles
-    also describe the project’s earlier commercial services.
+    <a href="/blog/">blog</a> for more about the work behind Toit.
   </p>
 </section>

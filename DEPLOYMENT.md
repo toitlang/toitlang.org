@@ -125,6 +125,10 @@ Keep the old hosting available until the migration has been checked.
 - `/sw.js` retires Gatsby's former offline worker and its Gatsby/Workbox caches.
   Keep this endpoint available for returning visitors after migration.
 - `404.html` gives missing pages a real 404; there is no SPA catch-all rewrite.
+- `/blog/` serves repository Markdown posts. `blog.toit.io` stays on Medium during
+  this first stage. Repointing it later requires a mapping from each existing
+  article URL to its imported `/blog/<slug>/` URL, with permanent redirects, and a
+  homepage redirect to `/blog/`. Keep the archive available until then.
 - Preview builds receive `X-Robots-Tag: noindex, nofollow` and a disallowing robots file.
 
 Verify redirects, headers, unknown URLs, schema contents, authentication status,

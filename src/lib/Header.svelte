@@ -17,6 +17,7 @@
       >Docs <ExternalLinkIcon class="external-link-icon" aria-hidden="true" focusable="false" /></a
     >
     <a href="/project/" aria-current={$page.path === '/project/' ? 'page' : undefined}>Project</a>
+    <a href="/blog/" aria-current={$page.path.startsWith('/blog/') ? 'page' : undefined}>Blog</a>
     <a href="https://github.com/toitlang/toit"
       >GitHub <ExternalLinkIcon
         class="external-link-icon"

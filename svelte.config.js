@@ -32,6 +32,10 @@ const config = {
     // The landing pages are fully rendered HTML and need no client runtime.
     hydrate: false,
     router: false,
+    prerender: {
+      // The sitemap has no HTML link for the prerenderer to discover.
+      entries: ['*', '/sitemap.xml'],
+    },
     adapter: adapter({
       // default options are shown
       pages: 'build',

@@ -51,6 +51,10 @@ npx eslint src tool tests --ext .js,.ts,.svelte,.mjs
 - `src/lib/toit-examples/` contains the actual Toit programs shown on the pages.
 - `src/style/app.css` defines the shared layout and visual style.
 - `static/schemas/` preserves published JSON-schema URLs independently of the UI.
+- Blog posts live in `content/blog/<slug>/index.md`, with optional images beside
+  them. See [Writing a blog post](content/blog/README.md) for metadata, drafts,
+  previews, and publication. The blog, RSS feed, and sitemap are generated as static
+  files during the normal build.
 - `npm run releases:fetch` refreshes the checked-in local release snapshot. Set
   `GITHUB_TOKEN` if the unauthenticated GitHub API is rate-limited. CI always fetches
   current data before building, using its built-in token.

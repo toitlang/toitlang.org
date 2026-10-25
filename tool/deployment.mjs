@@ -13,7 +13,7 @@ export function deploymentTarget(eventName, event, ref, publicEnabled = false) {
 
 /** Cloudflare records the source SHA with the successful public deployment. */
 export function publishedCommit(project) {
-  const deployment = project.production_deployment
+  const deployment = project.canonical_deployment
   const sha = deployment?.deployment_trigger?.metadata?.commit_hash
   if (deployment?.latest_stage?.status !== 'success' || !/^[a-f0-9]{40}$/.test(sha || '')) {
     throw new Error(

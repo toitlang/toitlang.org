@@ -32,7 +32,7 @@ data. Website prereleases do not promote the public site.
 
 Public workflows share a concurrency group across source selection, build, and
 deployment. A changelog update reads the Cloudflare project's
-`production_deployment.deployment_trigger.metadata.commit_hash`. Every upload
+`canonical_deployment.deployment_trigger.metadata.commit_hash`. Every upload
 explicitly records the checked-out website SHA. This also respects a Cloudflare
 rollback. If there is no successful public deployment with a valid SHA, the update
 fails with an explanation; it never falls back to `main`.

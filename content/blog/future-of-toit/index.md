@@ -1,6 +1,6 @@
 ---
 title: The future of Toit
-date: 2026-11-16
+date: 2026-11-15
 author: Florian Loitsch
 description: The road ahead for Toit, from sandboxed execution of agent-written programs to language improvements and broader hardware support.
 ---
